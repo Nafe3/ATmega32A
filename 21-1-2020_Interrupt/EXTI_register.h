@@ -1,0 +1,5 @@
+#define EXTI_SREG	*((volatile u8*)0x5F)
+#define EXTI_GICR	*((volatile u8*)0x5B)
+#define EXTI_GIFR	*((volatile u8*)0x5A)
+#define EXTI_MCUCR	*((volatile u8*)0x55)
+#define EXTI_MCUCSR	*((volatile u8*)0x54)

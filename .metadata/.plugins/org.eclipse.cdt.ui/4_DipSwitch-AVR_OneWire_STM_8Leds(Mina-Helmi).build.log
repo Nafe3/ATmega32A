@@ -1,0 +1,21 @@
+16:58:38 **** Incremental Build of configuration Debug for project 4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi) ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\avr\include" -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include" -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include-fixed" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\avr\include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:31: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:69: warning: suggest parentheses around + or - inside shift
+Finished building: ../main.c
+ 
+Building target: 4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi).elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi).map -mmcu=atmega32 -o "4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi).elf"  ./DIO_program.o ./PORT_program.o ./main.o   
+"D:/ITI/Subjects/Intro to ES-Assaf/Tools/SDK/IMT_SDK_Win_64_AVR/WinAVR/utils/bin/sh.exe": -c: line 1: syntax error near unexpected token `-Wl,-Map,4_DipSwitch-AVR_OneWire_STM_8Leds(M'
+"D:/ITI/Subjects/Intro to ES-Assaf/Tools/SDK/IMT_SDK_Win_64_AVR/WinAVR/utils/bin/sh.exe": -c: line 1: `avr-gcc -Wl,-Map,4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi).map -mmcu=atmega32 -o "4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi).elf"  ./DIO_program.o ./PORT_program.o ./main.o   '
+make: *** [4_DipSwitch-AVR_OneWire_STM_8Leds(Mina-Helmi).elf] Error 258
+
+16:58:38 Build Finished (took 364ms)
+

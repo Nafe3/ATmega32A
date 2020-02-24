@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/30c31c01ab4d001a19cfc48d0c5b3e79=30c31c01ab4d001a19cfc48d0c5b3e79;https\://svn.riouxsvn.com/itismartrepo;https\://svn.riouxsvn.com/itismartrepo;branches;tags;trunk;true;ed84c6ac-ff22-492f-ad53-618a189b42a9;https\://svn.riouxsvn.com/itismartrepo;;false;;;0
+repositories/b05dbb2a1349001a15f688dd3e0d4628=b05dbb2a1349001a15f688dd3e0d4628;https\://svn.riouxsvn.com/repoeclipse1;hello1;branches;tags;trunk;true;7a36a984-fd4b-4e78-9f7c-a23531d8086c;https\://svn.riouxsvn.com/repoeclipse1;;false;;;0
+synch_info/contigous=true

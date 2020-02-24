@@ -1,0 +1,1524 @@
+
+26-12-2-blink_STM-Led.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000009e8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000001e  00800060  000009e8  00000a7c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000001  0080007e  0080007e  00000a9a  2**0
+                  ALLOC
+  3 .stab         00000a74  00000000  00000000  00000a9c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      0000089c  00000000  00000000  00001510  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e8 ee       	ldi	r30, 0xE8	; 232
+  68:	f9 e0       	ldi	r31, 0x09	; 9
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	ae 37       	cpi	r26, 0x7E	; 126
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	ae e7       	ldi	r26, 0x7E	; 126
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	af 37       	cpi	r26, 0x7F	; 127
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 da 04 	call	0x9b4	; 0x9b4 <main>
+  8a:	0c 94 f2 04 	jmp	0x9e4	; 0x9e4 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <setPinDir>:
+#include "DIO_private.h"
+#include "DIO_register.h"
+#include "DIO_config.h"
+
+void setPinDir(u8 Port, u8 Pin, u8 Dir)
+{
+  92:	df 93       	push	r29
+  94:	cf 93       	push	r28
+  96:	00 d0       	rcall	.+0      	; 0x98 <setPinDir+0x6>
+  98:	00 d0       	rcall	.+0      	; 0x9a <setPinDir+0x8>
+  9a:	0f 92       	push	r0
+  9c:	cd b7       	in	r28, 0x3d	; 61
+  9e:	de b7       	in	r29, 0x3e	; 62
+  a0:	89 83       	std	Y+1, r24	; 0x01
+  a2:	6a 83       	std	Y+2, r22	; 0x02
+  a4:	4b 83       	std	Y+3, r20	; 0x03
+	switch (Port)
+  a6:	89 81       	ldd	r24, Y+1	; 0x01
+  a8:	28 2f       	mov	r18, r24
+  aa:	30 e0       	ldi	r19, 0x00	; 0
+  ac:	3d 83       	std	Y+5, r19	; 0x05
+  ae:	2c 83       	std	Y+4, r18	; 0x04
+  b0:	8c 81       	ldd	r24, Y+4	; 0x04
+  b2:	9d 81       	ldd	r25, Y+5	; 0x05
+  b4:	82 34       	cpi	r24, 0x42	; 66
+  b6:	91 05       	cpc	r25, r1
+  b8:	09 f4       	brne	.+2      	; 0xbc <setPinDir+0x2a>
+  ba:	44 c0       	rjmp	.+136    	; 0x144 <setPinDir+0xb2>
+  bc:	2c 81       	ldd	r18, Y+4	; 0x04
+  be:	3d 81       	ldd	r19, Y+5	; 0x05
+  c0:	23 34       	cpi	r18, 0x43	; 67
+  c2:	31 05       	cpc	r19, r1
+  c4:	34 f4       	brge	.+12     	; 0xd2 <setPinDir+0x40>
+  c6:	8c 81       	ldd	r24, Y+4	; 0x04
+  c8:	9d 81       	ldd	r25, Y+5	; 0x05
+  ca:	81 34       	cpi	r24, 0x41	; 65
+  cc:	91 05       	cpc	r25, r1
+  ce:	71 f0       	breq	.+28     	; 0xec <setPinDir+0x5a>
+  d0:	bc c0       	rjmp	.+376    	; 0x24a <setPinDir+0x1b8>
+  d2:	2c 81       	ldd	r18, Y+4	; 0x04
+  d4:	3d 81       	ldd	r19, Y+5	; 0x05
+  d6:	23 34       	cpi	r18, 0x43	; 67
+  d8:	31 05       	cpc	r19, r1
+  da:	09 f4       	brne	.+2      	; 0xde <setPinDir+0x4c>
+  dc:	5f c0       	rjmp	.+190    	; 0x19c <setPinDir+0x10a>
+  de:	8c 81       	ldd	r24, Y+4	; 0x04
+  e0:	9d 81       	ldd	r25, Y+5	; 0x05
+  e2:	84 34       	cpi	r24, 0x44	; 68
+  e4:	91 05       	cpc	r25, r1
+  e6:	09 f4       	brne	.+2      	; 0xea <setPinDir+0x58>
+  e8:	85 c0       	rjmp	.+266    	; 0x1f4 <setPinDir+0x162>
+  ea:	af c0       	rjmp	.+350    	; 0x24a <setPinDir+0x1b8>
+	{
+		case 'A':
+		{
+			if (Dir==0)
+  ec:	8b 81       	ldd	r24, Y+3	; 0x03
+  ee:	88 23       	and	r24, r24
+  f0:	a9 f4       	brne	.+42     	; 0x11c <setPinDir+0x8a>
+			{
+				CLR_BIT(DDRA,Pin);
+  f2:	aa e3       	ldi	r26, 0x3A	; 58
+  f4:	b0 e0       	ldi	r27, 0x00	; 0
+  f6:	ea e3       	ldi	r30, 0x3A	; 58
+  f8:	f0 e0       	ldi	r31, 0x00	; 0
+  fa:	80 81       	ld	r24, Z
+  fc:	48 2f       	mov	r20, r24
+  fe:	8a 81       	ldd	r24, Y+2	; 0x02
+ 100:	28 2f       	mov	r18, r24
+ 102:	30 e0       	ldi	r19, 0x00	; 0
+ 104:	81 e0       	ldi	r24, 0x01	; 1
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	02 2e       	mov	r0, r18
+ 10a:	02 c0       	rjmp	.+4      	; 0x110 <setPinDir+0x7e>
+ 10c:	88 0f       	add	r24, r24
+ 10e:	99 1f       	adc	r25, r25
+ 110:	0a 94       	dec	r0
+ 112:	e2 f7       	brpl	.-8      	; 0x10c <setPinDir+0x7a>
+ 114:	80 95       	com	r24
+ 116:	84 23       	and	r24, r20
+ 118:	8c 93       	st	X, r24
+ 11a:	97 c0       	rjmp	.+302    	; 0x24a <setPinDir+0x1b8>
+			}
+			else
+			{
+				SET_BIT(DDRA,Pin);
+ 11c:	aa e3       	ldi	r26, 0x3A	; 58
+ 11e:	b0 e0       	ldi	r27, 0x00	; 0
+ 120:	ea e3       	ldi	r30, 0x3A	; 58
+ 122:	f0 e0       	ldi	r31, 0x00	; 0
+ 124:	80 81       	ld	r24, Z
+ 126:	48 2f       	mov	r20, r24
+ 128:	8a 81       	ldd	r24, Y+2	; 0x02
+ 12a:	28 2f       	mov	r18, r24
+ 12c:	30 e0       	ldi	r19, 0x00	; 0
+ 12e:	81 e0       	ldi	r24, 0x01	; 1
+ 130:	90 e0       	ldi	r25, 0x00	; 0
+ 132:	02 2e       	mov	r0, r18
+ 134:	02 c0       	rjmp	.+4      	; 0x13a <setPinDir+0xa8>
+ 136:	88 0f       	add	r24, r24
+ 138:	99 1f       	adc	r25, r25
+ 13a:	0a 94       	dec	r0
+ 13c:	e2 f7       	brpl	.-8      	; 0x136 <setPinDir+0xa4>
+ 13e:	84 2b       	or	r24, r20
+ 140:	8c 93       	st	X, r24
+ 142:	83 c0       	rjmp	.+262    	; 0x24a <setPinDir+0x1b8>
+			}
+			break;
+		}
+		case 'B':
+		{
+			if (Dir==0)
+ 144:	8b 81       	ldd	r24, Y+3	; 0x03
+ 146:	88 23       	and	r24, r24
+ 148:	a9 f4       	brne	.+42     	; 0x174 <setPinDir+0xe2>
+			{
+				CLR_BIT(DDRB,Pin);
+ 14a:	a7 e3       	ldi	r26, 0x37	; 55
+ 14c:	b0 e0       	ldi	r27, 0x00	; 0
+ 14e:	e7 e3       	ldi	r30, 0x37	; 55
+ 150:	f0 e0       	ldi	r31, 0x00	; 0
+ 152:	80 81       	ld	r24, Z
+ 154:	48 2f       	mov	r20, r24
+ 156:	8a 81       	ldd	r24, Y+2	; 0x02
+ 158:	28 2f       	mov	r18, r24
+ 15a:	30 e0       	ldi	r19, 0x00	; 0
+ 15c:	81 e0       	ldi	r24, 0x01	; 1
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	02 2e       	mov	r0, r18
+ 162:	02 c0       	rjmp	.+4      	; 0x168 <setPinDir+0xd6>
+ 164:	88 0f       	add	r24, r24
+ 166:	99 1f       	adc	r25, r25
+ 168:	0a 94       	dec	r0
+ 16a:	e2 f7       	brpl	.-8      	; 0x164 <setPinDir+0xd2>
+ 16c:	80 95       	com	r24
+ 16e:	84 23       	and	r24, r20
+ 170:	8c 93       	st	X, r24
+ 172:	6b c0       	rjmp	.+214    	; 0x24a <setPinDir+0x1b8>
+			}
+			else
+			{
+				SET_BIT(DDRB,Pin);
+ 174:	a7 e3       	ldi	r26, 0x37	; 55
+ 176:	b0 e0       	ldi	r27, 0x00	; 0
+ 178:	e7 e3       	ldi	r30, 0x37	; 55
+ 17a:	f0 e0       	ldi	r31, 0x00	; 0
+ 17c:	80 81       	ld	r24, Z
+ 17e:	48 2f       	mov	r20, r24
+ 180:	8a 81       	ldd	r24, Y+2	; 0x02
+ 182:	28 2f       	mov	r18, r24
+ 184:	30 e0       	ldi	r19, 0x00	; 0
+ 186:	81 e0       	ldi	r24, 0x01	; 1
+ 188:	90 e0       	ldi	r25, 0x00	; 0
+ 18a:	02 2e       	mov	r0, r18
+ 18c:	02 c0       	rjmp	.+4      	; 0x192 <setPinDir+0x100>
+ 18e:	88 0f       	add	r24, r24
+ 190:	99 1f       	adc	r25, r25
+ 192:	0a 94       	dec	r0
+ 194:	e2 f7       	brpl	.-8      	; 0x18e <setPinDir+0xfc>
+ 196:	84 2b       	or	r24, r20
+ 198:	8c 93       	st	X, r24
+ 19a:	57 c0       	rjmp	.+174    	; 0x24a <setPinDir+0x1b8>
+			}
+			break;
+		}
+		case 'C':
+		{
+			if (Dir==0)
+ 19c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 19e:	88 23       	and	r24, r24
+ 1a0:	a9 f4       	brne	.+42     	; 0x1cc <setPinDir+0x13a>
+			{
+				CLR_BIT(DDRC,Pin);
+ 1a2:	a4 e3       	ldi	r26, 0x34	; 52
+ 1a4:	b0 e0       	ldi	r27, 0x00	; 0
+ 1a6:	e4 e3       	ldi	r30, 0x34	; 52
+ 1a8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1aa:	80 81       	ld	r24, Z
+ 1ac:	48 2f       	mov	r20, r24
+ 1ae:	8a 81       	ldd	r24, Y+2	; 0x02
+ 1b0:	28 2f       	mov	r18, r24
+ 1b2:	30 e0       	ldi	r19, 0x00	; 0
+ 1b4:	81 e0       	ldi	r24, 0x01	; 1
+ 1b6:	90 e0       	ldi	r25, 0x00	; 0
+ 1b8:	02 2e       	mov	r0, r18
+ 1ba:	02 c0       	rjmp	.+4      	; 0x1c0 <setPinDir+0x12e>
+ 1bc:	88 0f       	add	r24, r24
+ 1be:	99 1f       	adc	r25, r25
+ 1c0:	0a 94       	dec	r0
+ 1c2:	e2 f7       	brpl	.-8      	; 0x1bc <setPinDir+0x12a>
+ 1c4:	80 95       	com	r24
+ 1c6:	84 23       	and	r24, r20
+ 1c8:	8c 93       	st	X, r24
+ 1ca:	3f c0       	rjmp	.+126    	; 0x24a <setPinDir+0x1b8>
+			}
+			else
+			{
+				SET_BIT(DDRC,Pin);
+ 1cc:	a4 e3       	ldi	r26, 0x34	; 52
+ 1ce:	b0 e0       	ldi	r27, 0x00	; 0
+ 1d0:	e4 e3       	ldi	r30, 0x34	; 52
+ 1d2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d4:	80 81       	ld	r24, Z
+ 1d6:	48 2f       	mov	r20, r24
+ 1d8:	8a 81       	ldd	r24, Y+2	; 0x02
+ 1da:	28 2f       	mov	r18, r24
+ 1dc:	30 e0       	ldi	r19, 0x00	; 0
+ 1de:	81 e0       	ldi	r24, 0x01	; 1
+ 1e0:	90 e0       	ldi	r25, 0x00	; 0
+ 1e2:	02 2e       	mov	r0, r18
+ 1e4:	02 c0       	rjmp	.+4      	; 0x1ea <setPinDir+0x158>
+ 1e6:	88 0f       	add	r24, r24
+ 1e8:	99 1f       	adc	r25, r25
+ 1ea:	0a 94       	dec	r0
+ 1ec:	e2 f7       	brpl	.-8      	; 0x1e6 <setPinDir+0x154>
+ 1ee:	84 2b       	or	r24, r20
+ 1f0:	8c 93       	st	X, r24
+ 1f2:	2b c0       	rjmp	.+86     	; 0x24a <setPinDir+0x1b8>
+			}
+			break;
+		}
+		case 'D':
+		{
+			if (Dir==0)
+ 1f4:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1f6:	88 23       	and	r24, r24
+ 1f8:	a9 f4       	brne	.+42     	; 0x224 <setPinDir+0x192>
+			{
+				CLR_BIT(DDRD,Pin);
+ 1fa:	a1 e3       	ldi	r26, 0x31	; 49
+ 1fc:	b0 e0       	ldi	r27, 0x00	; 0
+ 1fe:	e1 e3       	ldi	r30, 0x31	; 49
+ 200:	f0 e0       	ldi	r31, 0x00	; 0
+ 202:	80 81       	ld	r24, Z
+ 204:	48 2f       	mov	r20, r24
+ 206:	8a 81       	ldd	r24, Y+2	; 0x02
+ 208:	28 2f       	mov	r18, r24
+ 20a:	30 e0       	ldi	r19, 0x00	; 0
+ 20c:	81 e0       	ldi	r24, 0x01	; 1
+ 20e:	90 e0       	ldi	r25, 0x00	; 0
+ 210:	02 2e       	mov	r0, r18
+ 212:	02 c0       	rjmp	.+4      	; 0x218 <setPinDir+0x186>
+ 214:	88 0f       	add	r24, r24
+ 216:	99 1f       	adc	r25, r25
+ 218:	0a 94       	dec	r0
+ 21a:	e2 f7       	brpl	.-8      	; 0x214 <setPinDir+0x182>
+ 21c:	80 95       	com	r24
+ 21e:	84 23       	and	r24, r20
+ 220:	8c 93       	st	X, r24
+ 222:	13 c0       	rjmp	.+38     	; 0x24a <setPinDir+0x1b8>
+			}
+			else
+			{
+				SET_BIT(DDRD,Pin);
+ 224:	a1 e3       	ldi	r26, 0x31	; 49
+ 226:	b0 e0       	ldi	r27, 0x00	; 0
+ 228:	e1 e3       	ldi	r30, 0x31	; 49
+ 22a:	f0 e0       	ldi	r31, 0x00	; 0
+ 22c:	80 81       	ld	r24, Z
+ 22e:	48 2f       	mov	r20, r24
+ 230:	8a 81       	ldd	r24, Y+2	; 0x02
+ 232:	28 2f       	mov	r18, r24
+ 234:	30 e0       	ldi	r19, 0x00	; 0
+ 236:	81 e0       	ldi	r24, 0x01	; 1
+ 238:	90 e0       	ldi	r25, 0x00	; 0
+ 23a:	02 2e       	mov	r0, r18
+ 23c:	02 c0       	rjmp	.+4      	; 0x242 <setPinDir+0x1b0>
+ 23e:	88 0f       	add	r24, r24
+ 240:	99 1f       	adc	r25, r25
+ 242:	0a 94       	dec	r0
+ 244:	e2 f7       	brpl	.-8      	; 0x23e <setPinDir+0x1ac>
+ 246:	84 2b       	or	r24, r20
+ 248:	8c 93       	st	X, r24
+			}
+			break;
+		}
+	}
+}
+ 24a:	0f 90       	pop	r0
+ 24c:	0f 90       	pop	r0
+ 24e:	0f 90       	pop	r0
+ 250:	0f 90       	pop	r0
+ 252:	0f 90       	pop	r0
+ 254:	cf 91       	pop	r28
+ 256:	df 91       	pop	r29
+ 258:	08 95       	ret
+
+0000025a <setPinValue>:
+
+
+void setPinValue(u8 Port, u8 Pin, u8 Val)
+{
+ 25a:	df 93       	push	r29
+ 25c:	cf 93       	push	r28
+ 25e:	00 d0       	rcall	.+0      	; 0x260 <setPinValue+0x6>
+ 260:	00 d0       	rcall	.+0      	; 0x262 <setPinValue+0x8>
+ 262:	0f 92       	push	r0
+ 264:	cd b7       	in	r28, 0x3d	; 61
+ 266:	de b7       	in	r29, 0x3e	; 62
+ 268:	89 83       	std	Y+1, r24	; 0x01
+ 26a:	6a 83       	std	Y+2, r22	; 0x02
+ 26c:	4b 83       	std	Y+3, r20	; 0x03
+	switch (Port)
+ 26e:	89 81       	ldd	r24, Y+1	; 0x01
+ 270:	28 2f       	mov	r18, r24
+ 272:	30 e0       	ldi	r19, 0x00	; 0
+ 274:	3d 83       	std	Y+5, r19	; 0x05
+ 276:	2c 83       	std	Y+4, r18	; 0x04
+ 278:	8c 81       	ldd	r24, Y+4	; 0x04
+ 27a:	9d 81       	ldd	r25, Y+5	; 0x05
+ 27c:	82 34       	cpi	r24, 0x42	; 66
+ 27e:	91 05       	cpc	r25, r1
+ 280:	09 f4       	brne	.+2      	; 0x284 <setPinValue+0x2a>
+ 282:	44 c0       	rjmp	.+136    	; 0x30c <setPinValue+0xb2>
+ 284:	2c 81       	ldd	r18, Y+4	; 0x04
+ 286:	3d 81       	ldd	r19, Y+5	; 0x05
+ 288:	23 34       	cpi	r18, 0x43	; 67
+ 28a:	31 05       	cpc	r19, r1
+ 28c:	34 f4       	brge	.+12     	; 0x29a <setPinValue+0x40>
+ 28e:	8c 81       	ldd	r24, Y+4	; 0x04
+ 290:	9d 81       	ldd	r25, Y+5	; 0x05
+ 292:	81 34       	cpi	r24, 0x41	; 65
+ 294:	91 05       	cpc	r25, r1
+ 296:	71 f0       	breq	.+28     	; 0x2b4 <setPinValue+0x5a>
+ 298:	bc c0       	rjmp	.+376    	; 0x412 <setPinValue+0x1b8>
+ 29a:	2c 81       	ldd	r18, Y+4	; 0x04
+ 29c:	3d 81       	ldd	r19, Y+5	; 0x05
+ 29e:	23 34       	cpi	r18, 0x43	; 67
+ 2a0:	31 05       	cpc	r19, r1
+ 2a2:	09 f4       	brne	.+2      	; 0x2a6 <setPinValue+0x4c>
+ 2a4:	5f c0       	rjmp	.+190    	; 0x364 <setPinValue+0x10a>
+ 2a6:	8c 81       	ldd	r24, Y+4	; 0x04
+ 2a8:	9d 81       	ldd	r25, Y+5	; 0x05
+ 2aa:	84 34       	cpi	r24, 0x44	; 68
+ 2ac:	91 05       	cpc	r25, r1
+ 2ae:	09 f4       	brne	.+2      	; 0x2b2 <setPinValue+0x58>
+ 2b0:	85 c0       	rjmp	.+266    	; 0x3bc <setPinValue+0x162>
+ 2b2:	af c0       	rjmp	.+350    	; 0x412 <setPinValue+0x1b8>
+	{
+		case 'A':
+		{
+			if (Val==0)
+ 2b4:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2b6:	88 23       	and	r24, r24
+ 2b8:	a9 f4       	brne	.+42     	; 0x2e4 <setPinValue+0x8a>
+			{
+				CLR_BIT(PORTA,Pin);
+ 2ba:	ab e3       	ldi	r26, 0x3B	; 59
+ 2bc:	b0 e0       	ldi	r27, 0x00	; 0
+ 2be:	eb e3       	ldi	r30, 0x3B	; 59
+ 2c0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2c2:	80 81       	ld	r24, Z
+ 2c4:	48 2f       	mov	r20, r24
+ 2c6:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2c8:	28 2f       	mov	r18, r24
+ 2ca:	30 e0       	ldi	r19, 0x00	; 0
+ 2cc:	81 e0       	ldi	r24, 0x01	; 1
+ 2ce:	90 e0       	ldi	r25, 0x00	; 0
+ 2d0:	02 2e       	mov	r0, r18
+ 2d2:	02 c0       	rjmp	.+4      	; 0x2d8 <setPinValue+0x7e>
+ 2d4:	88 0f       	add	r24, r24
+ 2d6:	99 1f       	adc	r25, r25
+ 2d8:	0a 94       	dec	r0
+ 2da:	e2 f7       	brpl	.-8      	; 0x2d4 <setPinValue+0x7a>
+ 2dc:	80 95       	com	r24
+ 2de:	84 23       	and	r24, r20
+ 2e0:	8c 93       	st	X, r24
+ 2e2:	97 c0       	rjmp	.+302    	; 0x412 <setPinValue+0x1b8>
+			}
+			else
+			{
+				SET_BIT(PORTA,Pin);
+ 2e4:	ab e3       	ldi	r26, 0x3B	; 59
+ 2e6:	b0 e0       	ldi	r27, 0x00	; 0
+ 2e8:	eb e3       	ldi	r30, 0x3B	; 59
+ 2ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 2ec:	80 81       	ld	r24, Z
+ 2ee:	48 2f       	mov	r20, r24
+ 2f0:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2f2:	28 2f       	mov	r18, r24
+ 2f4:	30 e0       	ldi	r19, 0x00	; 0
+ 2f6:	81 e0       	ldi	r24, 0x01	; 1
+ 2f8:	90 e0       	ldi	r25, 0x00	; 0
+ 2fa:	02 2e       	mov	r0, r18
+ 2fc:	02 c0       	rjmp	.+4      	; 0x302 <setPinValue+0xa8>
+ 2fe:	88 0f       	add	r24, r24
+ 300:	99 1f       	adc	r25, r25
+ 302:	0a 94       	dec	r0
+ 304:	e2 f7       	brpl	.-8      	; 0x2fe <setPinValue+0xa4>
+ 306:	84 2b       	or	r24, r20
+ 308:	8c 93       	st	X, r24
+ 30a:	83 c0       	rjmp	.+262    	; 0x412 <setPinValue+0x1b8>
+			}
+			break;
+		}
+		case 'B':
+		{
+			if (Val==0)
+ 30c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 30e:	88 23       	and	r24, r24
+ 310:	a9 f4       	brne	.+42     	; 0x33c <setPinValue+0xe2>
+			{
+				CLR_BIT(PORTB,Pin);
+ 312:	a8 e3       	ldi	r26, 0x38	; 56
+ 314:	b0 e0       	ldi	r27, 0x00	; 0
+ 316:	e8 e3       	ldi	r30, 0x38	; 56
+ 318:	f0 e0       	ldi	r31, 0x00	; 0
+ 31a:	80 81       	ld	r24, Z
+ 31c:	48 2f       	mov	r20, r24
+ 31e:	8a 81       	ldd	r24, Y+2	; 0x02
+ 320:	28 2f       	mov	r18, r24
+ 322:	30 e0       	ldi	r19, 0x00	; 0
+ 324:	81 e0       	ldi	r24, 0x01	; 1
+ 326:	90 e0       	ldi	r25, 0x00	; 0
+ 328:	02 2e       	mov	r0, r18
+ 32a:	02 c0       	rjmp	.+4      	; 0x330 <setPinValue+0xd6>
+ 32c:	88 0f       	add	r24, r24
+ 32e:	99 1f       	adc	r25, r25
+ 330:	0a 94       	dec	r0
+ 332:	e2 f7       	brpl	.-8      	; 0x32c <setPinValue+0xd2>
+ 334:	80 95       	com	r24
+ 336:	84 23       	and	r24, r20
+ 338:	8c 93       	st	X, r24
+ 33a:	6b c0       	rjmp	.+214    	; 0x412 <setPinValue+0x1b8>
+			}
+			else
+			{
+				SET_BIT(PORTB,Pin);;
+ 33c:	a8 e3       	ldi	r26, 0x38	; 56
+ 33e:	b0 e0       	ldi	r27, 0x00	; 0
+ 340:	e8 e3       	ldi	r30, 0x38	; 56
+ 342:	f0 e0       	ldi	r31, 0x00	; 0
+ 344:	80 81       	ld	r24, Z
+ 346:	48 2f       	mov	r20, r24
+ 348:	8a 81       	ldd	r24, Y+2	; 0x02
+ 34a:	28 2f       	mov	r18, r24
+ 34c:	30 e0       	ldi	r19, 0x00	; 0
+ 34e:	81 e0       	ldi	r24, 0x01	; 1
+ 350:	90 e0       	ldi	r25, 0x00	; 0
+ 352:	02 2e       	mov	r0, r18
+ 354:	02 c0       	rjmp	.+4      	; 0x35a <setPinValue+0x100>
+ 356:	88 0f       	add	r24, r24
+ 358:	99 1f       	adc	r25, r25
+ 35a:	0a 94       	dec	r0
+ 35c:	e2 f7       	brpl	.-8      	; 0x356 <setPinValue+0xfc>
+ 35e:	84 2b       	or	r24, r20
+ 360:	8c 93       	st	X, r24
+ 362:	57 c0       	rjmp	.+174    	; 0x412 <setPinValue+0x1b8>
+			break;
+		}
+		
+		case 'C':
+		{
+			if (Val==0)
+ 364:	8b 81       	ldd	r24, Y+3	; 0x03
+ 366:	88 23       	and	r24, r24
+ 368:	a9 f4       	brne	.+42     	; 0x394 <setPinValue+0x13a>
+			{
+				CLR_BIT(PORTC,Pin);
+ 36a:	a5 e3       	ldi	r26, 0x35	; 53
+ 36c:	b0 e0       	ldi	r27, 0x00	; 0
+ 36e:	e5 e3       	ldi	r30, 0x35	; 53
+ 370:	f0 e0       	ldi	r31, 0x00	; 0
+ 372:	80 81       	ld	r24, Z
+ 374:	48 2f       	mov	r20, r24
+ 376:	8a 81       	ldd	r24, Y+2	; 0x02
+ 378:	28 2f       	mov	r18, r24
+ 37a:	30 e0       	ldi	r19, 0x00	; 0
+ 37c:	81 e0       	ldi	r24, 0x01	; 1
+ 37e:	90 e0       	ldi	r25, 0x00	; 0
+ 380:	02 2e       	mov	r0, r18
+ 382:	02 c0       	rjmp	.+4      	; 0x388 <setPinValue+0x12e>
+ 384:	88 0f       	add	r24, r24
+ 386:	99 1f       	adc	r25, r25
+ 388:	0a 94       	dec	r0
+ 38a:	e2 f7       	brpl	.-8      	; 0x384 <setPinValue+0x12a>
+ 38c:	80 95       	com	r24
+ 38e:	84 23       	and	r24, r20
+ 390:	8c 93       	st	X, r24
+ 392:	3f c0       	rjmp	.+126    	; 0x412 <setPinValue+0x1b8>
+			}
+			else
+			{
+				SET_BIT(PORTC,Pin);
+ 394:	a5 e3       	ldi	r26, 0x35	; 53
+ 396:	b0 e0       	ldi	r27, 0x00	; 0
+ 398:	e5 e3       	ldi	r30, 0x35	; 53
+ 39a:	f0 e0       	ldi	r31, 0x00	; 0
+ 39c:	80 81       	ld	r24, Z
+ 39e:	48 2f       	mov	r20, r24
+ 3a0:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3a2:	28 2f       	mov	r18, r24
+ 3a4:	30 e0       	ldi	r19, 0x00	; 0
+ 3a6:	81 e0       	ldi	r24, 0x01	; 1
+ 3a8:	90 e0       	ldi	r25, 0x00	; 0
+ 3aa:	02 2e       	mov	r0, r18
+ 3ac:	02 c0       	rjmp	.+4      	; 0x3b2 <setPinValue+0x158>
+ 3ae:	88 0f       	add	r24, r24
+ 3b0:	99 1f       	adc	r25, r25
+ 3b2:	0a 94       	dec	r0
+ 3b4:	e2 f7       	brpl	.-8      	; 0x3ae <setPinValue+0x154>
+ 3b6:	84 2b       	or	r24, r20
+ 3b8:	8c 93       	st	X, r24
+ 3ba:	2b c0       	rjmp	.+86     	; 0x412 <setPinValue+0x1b8>
+			}
+			break;
+		}
+		case 'D':
+		{
+			if (Val==0)
+ 3bc:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3be:	88 23       	and	r24, r24
+ 3c0:	a9 f4       	brne	.+42     	; 0x3ec <setPinValue+0x192>
+			{
+				CLR_BIT(PORTD,Pin);
+ 3c2:	a2 e3       	ldi	r26, 0x32	; 50
+ 3c4:	b0 e0       	ldi	r27, 0x00	; 0
+ 3c6:	e2 e3       	ldi	r30, 0x32	; 50
+ 3c8:	f0 e0       	ldi	r31, 0x00	; 0
+ 3ca:	80 81       	ld	r24, Z
+ 3cc:	48 2f       	mov	r20, r24
+ 3ce:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3d0:	28 2f       	mov	r18, r24
+ 3d2:	30 e0       	ldi	r19, 0x00	; 0
+ 3d4:	81 e0       	ldi	r24, 0x01	; 1
+ 3d6:	90 e0       	ldi	r25, 0x00	; 0
+ 3d8:	02 2e       	mov	r0, r18
+ 3da:	02 c0       	rjmp	.+4      	; 0x3e0 <setPinValue+0x186>
+ 3dc:	88 0f       	add	r24, r24
+ 3de:	99 1f       	adc	r25, r25
+ 3e0:	0a 94       	dec	r0
+ 3e2:	e2 f7       	brpl	.-8      	; 0x3dc <setPinValue+0x182>
+ 3e4:	80 95       	com	r24
+ 3e6:	84 23       	and	r24, r20
+ 3e8:	8c 93       	st	X, r24
+ 3ea:	13 c0       	rjmp	.+38     	; 0x412 <setPinValue+0x1b8>
+			}
+			else
+			{
+				SET_BIT(PORTD,Pin);
+ 3ec:	a2 e3       	ldi	r26, 0x32	; 50
+ 3ee:	b0 e0       	ldi	r27, 0x00	; 0
+ 3f0:	e2 e3       	ldi	r30, 0x32	; 50
+ 3f2:	f0 e0       	ldi	r31, 0x00	; 0
+ 3f4:	80 81       	ld	r24, Z
+ 3f6:	48 2f       	mov	r20, r24
+ 3f8:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3fa:	28 2f       	mov	r18, r24
+ 3fc:	30 e0       	ldi	r19, 0x00	; 0
+ 3fe:	81 e0       	ldi	r24, 0x01	; 1
+ 400:	90 e0       	ldi	r25, 0x00	; 0
+ 402:	02 2e       	mov	r0, r18
+ 404:	02 c0       	rjmp	.+4      	; 0x40a <setPinValue+0x1b0>
+ 406:	88 0f       	add	r24, r24
+ 408:	99 1f       	adc	r25, r25
+ 40a:	0a 94       	dec	r0
+ 40c:	e2 f7       	brpl	.-8      	; 0x406 <setPinValue+0x1ac>
+ 40e:	84 2b       	or	r24, r20
+ 410:	8c 93       	st	X, r24
+			}
+			break;
+		}
+	}
+}
+ 412:	0f 90       	pop	r0
+ 414:	0f 90       	pop	r0
+ 416:	0f 90       	pop	r0
+ 418:	0f 90       	pop	r0
+ 41a:	0f 90       	pop	r0
+ 41c:	cf 91       	pop	r28
+ 41e:	df 91       	pop	r29
+ 420:	08 95       	ret
+
+00000422 <getPinValue>:
+
+u8 getPinValue(u8 Port, u8 pin)
+{
+ 422:	df 93       	push	r29
+ 424:	cf 93       	push	r28
+ 426:	00 d0       	rcall	.+0      	; 0x428 <getPinValue+0x6>
+ 428:	00 d0       	rcall	.+0      	; 0x42a <getPinValue+0x8>
+ 42a:	0f 92       	push	r0
+ 42c:	cd b7       	in	r28, 0x3d	; 61
+ 42e:	de b7       	in	r29, 0x3e	; 62
+ 430:	8a 83       	std	Y+2, r24	; 0x02
+ 432:	6b 83       	std	Y+3, r22	; 0x03
+	u8 result;
+	
+	switch (Port)
+ 434:	8a 81       	ldd	r24, Y+2	; 0x02
+ 436:	28 2f       	mov	r18, r24
+ 438:	30 e0       	ldi	r19, 0x00	; 0
+ 43a:	3d 83       	std	Y+5, r19	; 0x05
+ 43c:	2c 83       	std	Y+4, r18	; 0x04
+ 43e:	4c 81       	ldd	r20, Y+4	; 0x04
+ 440:	5d 81       	ldd	r21, Y+5	; 0x05
+ 442:	42 34       	cpi	r20, 0x42	; 66
+ 444:	51 05       	cpc	r21, r1
+ 446:	41 f1       	breq	.+80     	; 0x498 <getPinValue+0x76>
+ 448:	8c 81       	ldd	r24, Y+4	; 0x04
+ 44a:	9d 81       	ldd	r25, Y+5	; 0x05
+ 44c:	83 34       	cpi	r24, 0x43	; 67
+ 44e:	91 05       	cpc	r25, r1
+ 450:	34 f4       	brge	.+12     	; 0x45e <getPinValue+0x3c>
+ 452:	2c 81       	ldd	r18, Y+4	; 0x04
+ 454:	3d 81       	ldd	r19, Y+5	; 0x05
+ 456:	21 34       	cpi	r18, 0x41	; 65
+ 458:	31 05       	cpc	r19, r1
+ 45a:	61 f0       	breq	.+24     	; 0x474 <getPinValue+0x52>
+ 45c:	52 c0       	rjmp	.+164    	; 0x502 <getPinValue+0xe0>
+ 45e:	4c 81       	ldd	r20, Y+4	; 0x04
+ 460:	5d 81       	ldd	r21, Y+5	; 0x05
+ 462:	43 34       	cpi	r20, 0x43	; 67
+ 464:	51 05       	cpc	r21, r1
+ 466:	51 f1       	breq	.+84     	; 0x4bc <getPinValue+0x9a>
+ 468:	8c 81       	ldd	r24, Y+4	; 0x04
+ 46a:	9d 81       	ldd	r25, Y+5	; 0x05
+ 46c:	84 34       	cpi	r24, 0x44	; 68
+ 46e:	91 05       	cpc	r25, r1
+ 470:	b9 f1       	breq	.+110    	; 0x4e0 <getPinValue+0xbe>
+ 472:	47 c0       	rjmp	.+142    	; 0x502 <getPinValue+0xe0>
+	{
+		case 'A':
+		{
+			result=GET_BIT(PINA, pin);
+ 474:	e9 e3       	ldi	r30, 0x39	; 57
+ 476:	f0 e0       	ldi	r31, 0x00	; 0
+ 478:	80 81       	ld	r24, Z
+ 47a:	28 2f       	mov	r18, r24
+ 47c:	30 e0       	ldi	r19, 0x00	; 0
+ 47e:	8b 81       	ldd	r24, Y+3	; 0x03
+ 480:	88 2f       	mov	r24, r24
+ 482:	90 e0       	ldi	r25, 0x00	; 0
+ 484:	a9 01       	movw	r20, r18
+ 486:	02 c0       	rjmp	.+4      	; 0x48c <getPinValue+0x6a>
+ 488:	55 95       	asr	r21
+ 48a:	47 95       	ror	r20
+ 48c:	8a 95       	dec	r24
+ 48e:	e2 f7       	brpl	.-8      	; 0x488 <getPinValue+0x66>
+ 490:	ca 01       	movw	r24, r20
+ 492:	81 70       	andi	r24, 0x01	; 1
+ 494:	89 83       	std	Y+1, r24	; 0x01
+ 496:	35 c0       	rjmp	.+106    	; 0x502 <getPinValue+0xe0>
+			break;
+		}
+		case 'B':
+		{
+			result=GET_BIT(PINB, pin);
+ 498:	e6 e3       	ldi	r30, 0x36	; 54
+ 49a:	f0 e0       	ldi	r31, 0x00	; 0
+ 49c:	80 81       	ld	r24, Z
+ 49e:	28 2f       	mov	r18, r24
+ 4a0:	30 e0       	ldi	r19, 0x00	; 0
+ 4a2:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4a4:	88 2f       	mov	r24, r24
+ 4a6:	90 e0       	ldi	r25, 0x00	; 0
+ 4a8:	a9 01       	movw	r20, r18
+ 4aa:	02 c0       	rjmp	.+4      	; 0x4b0 <getPinValue+0x8e>
+ 4ac:	55 95       	asr	r21
+ 4ae:	47 95       	ror	r20
+ 4b0:	8a 95       	dec	r24
+ 4b2:	e2 f7       	brpl	.-8      	; 0x4ac <getPinValue+0x8a>
+ 4b4:	ca 01       	movw	r24, r20
+ 4b6:	81 70       	andi	r24, 0x01	; 1
+ 4b8:	89 83       	std	Y+1, r24	; 0x01
+ 4ba:	23 c0       	rjmp	.+70     	; 0x502 <getPinValue+0xe0>
+			break;
+		}
+		
+		case 'C':
+		{
+			result=GET_BIT(PINC, pin);
+ 4bc:	e3 e3       	ldi	r30, 0x33	; 51
+ 4be:	f0 e0       	ldi	r31, 0x00	; 0
+ 4c0:	80 81       	ld	r24, Z
+ 4c2:	28 2f       	mov	r18, r24
+ 4c4:	30 e0       	ldi	r19, 0x00	; 0
+ 4c6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4c8:	88 2f       	mov	r24, r24
+ 4ca:	90 e0       	ldi	r25, 0x00	; 0
+ 4cc:	a9 01       	movw	r20, r18
+ 4ce:	02 c0       	rjmp	.+4      	; 0x4d4 <getPinValue+0xb2>
+ 4d0:	55 95       	asr	r21
+ 4d2:	47 95       	ror	r20
+ 4d4:	8a 95       	dec	r24
+ 4d6:	e2 f7       	brpl	.-8      	; 0x4d0 <getPinValue+0xae>
+ 4d8:	ca 01       	movw	r24, r20
+ 4da:	81 70       	andi	r24, 0x01	; 1
+ 4dc:	89 83       	std	Y+1, r24	; 0x01
+ 4de:	11 c0       	rjmp	.+34     	; 0x502 <getPinValue+0xe0>
+			break;
+		}
+		case 'D':
+		{
+			result=GET_BIT(PIND, pin);
+ 4e0:	e0 e3       	ldi	r30, 0x30	; 48
+ 4e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4e4:	80 81       	ld	r24, Z
+ 4e6:	28 2f       	mov	r18, r24
+ 4e8:	30 e0       	ldi	r19, 0x00	; 0
+ 4ea:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4ec:	88 2f       	mov	r24, r24
+ 4ee:	90 e0       	ldi	r25, 0x00	; 0
+ 4f0:	a9 01       	movw	r20, r18
+ 4f2:	02 c0       	rjmp	.+4      	; 0x4f8 <getPinValue+0xd6>
+ 4f4:	55 95       	asr	r21
+ 4f6:	47 95       	ror	r20
+ 4f8:	8a 95       	dec	r24
+ 4fa:	e2 f7       	brpl	.-8      	; 0x4f4 <getPinValue+0xd2>
+ 4fc:	ca 01       	movw	r24, r20
+ 4fe:	81 70       	andi	r24, 0x01	; 1
+ 500:	89 83       	std	Y+1, r24	; 0x01
+			break;
+		}
+	}
+	return result;
+ 502:	89 81       	ldd	r24, Y+1	; 0x01
+}
+ 504:	0f 90       	pop	r0
+ 506:	0f 90       	pop	r0
+ 508:	0f 90       	pop	r0
+ 50a:	0f 90       	pop	r0
+ 50c:	0f 90       	pop	r0
+ 50e:	cf 91       	pop	r28
+ 510:	df 91       	pop	r29
+ 512:	08 95       	ret
+
+00000514 <portInitialize>:
+#include "PORT_private.h"
+#include "PORT_config.h"
+#include "PORT_register.h"
+
+void portInitialize(void)
+{
+ 514:	df 93       	push	r29
+ 516:	cf 93       	push	r28
+ 518:	cd b7       	in	r28, 0x3d	; 61
+ 51a:	de b7       	in	r29, 0x3e	; 62
+	DDRA=PORTA_DIR;
+ 51c:	ea e3       	ldi	r30, 0x3A	; 58
+ 51e:	f0 e0       	ldi	r31, 0x00	; 0
+ 520:	8f ef       	ldi	r24, 0xFF	; 255
+ 522:	80 83       	st	Z, r24
+	DDRB=PORTB_DIR;
+ 524:	e7 e3       	ldi	r30, 0x37	; 55
+ 526:	f0 e0       	ldi	r31, 0x00	; 0
+ 528:	8f e3       	ldi	r24, 0x3F	; 63
+ 52a:	80 83       	st	Z, r24
+	DDRC=PORTC_DIR;
+ 52c:	e4 e3       	ldi	r30, 0x34	; 52
+ 52e:	f0 e0       	ldi	r31, 0x00	; 0
+ 530:	8e ef       	ldi	r24, 0xFE	; 254
+ 532:	80 83       	st	Z, r24
+	DDRD=PORTD_DIR;
+ 534:	e1 e3       	ldi	r30, 0x31	; 49
+ 536:	f0 e0       	ldi	r31, 0x00	; 0
+ 538:	86 ef       	ldi	r24, 0xF6	; 246
+ 53a:	80 83       	st	Z, r24
+	
+	PORTA=PORTA_INITIALVALUE;
+ 53c:	eb e3       	ldi	r30, 0x3B	; 59
+ 53e:	f0 e0       	ldi	r31, 0x00	; 0
+ 540:	10 82       	st	Z, r1
+	PORTB=PORTB_INITIALVALUE;
+ 542:	e8 e3       	ldi	r30, 0x38	; 56
+ 544:	f0 e0       	ldi	r31, 0x00	; 0
+ 546:	8f ef       	ldi	r24, 0xFF	; 255
+ 548:	80 83       	st	Z, r24
+	PORTC=PORTC_INITIALVALUE;
+ 54a:	e5 e3       	ldi	r30, 0x35	; 53
+ 54c:	f0 e0       	ldi	r31, 0x00	; 0
+ 54e:	81 e0       	ldi	r24, 0x01	; 1
+ 550:	80 83       	st	Z, r24
+	PORTD=PORTD_INITIALVALUE;
+ 552:	e2 e3       	ldi	r30, 0x32	; 50
+ 554:	f0 e0       	ldi	r31, 0x00	; 0
+ 556:	89 e0       	ldi	r24, 0x09	; 9
+ 558:	80 83       	st	Z, r24
+}
+ 55a:	cf 91       	pop	r28
+ 55c:	df 91       	pop	r29
+ 55e:	08 95       	ret
+
+00000560 <setNumber>:
+
+u8 lastNumber= sevenSeg1_Initial_Value;
+u8 sevenSeg_Enable_Port[6]={sevenSeg1_Enable_Port,sevenSeg2_Enable_Port,sevenSeg3_Enable_Port,sevenSeg4_Enable_Port,sevenSeg5_Enable_Port,sevenSeg6_Enable_Port};
+u8 sevenSeg_Enable_Pins[6]={sevenSeg1_Enable_Pin,sevenSeg2_Enable_Pin,sevenSeg3_Enable_Pin,sevenSeg4_Enable_Pin,sevenSeg5_Enable_Pin,sevenSeg6_Enable_Pin};
+void setNumber(u8 number)
+{
+ 560:	df 93       	push	r29
+ 562:	cf 93       	push	r28
+ 564:	cd b7       	in	r28, 0x3d	; 61
+ 566:	de b7       	in	r29, 0x3e	; 62
+ 568:	67 97       	sbiw	r28, 0x17	; 23
+ 56a:	0f b6       	in	r0, 0x3f	; 63
+ 56c:	f8 94       	cli
+ 56e:	de bf       	out	0x3e, r29	; 62
+ 570:	0f be       	out	0x3f, r0	; 63
+ 572:	cd bf       	out	0x3d, r28	; 61
+ 574:	8b 87       	std	Y+11, r24	; 0x0b
+	u8 sevenSeg_Numbers[10] = {0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111};
+ 576:	ce 01       	movw	r24, r28
+ 578:	01 96       	adiw	r24, 0x01	; 1
+ 57a:	9c 8b       	std	Y+20, r25	; 0x14
+ 57c:	8b 8b       	std	Y+19, r24	; 0x13
+ 57e:	ec e6       	ldi	r30, 0x6C	; 108
+ 580:	f0 e0       	ldi	r31, 0x00	; 0
+ 582:	fe 8b       	std	Y+22, r31	; 0x16
+ 584:	ed 8b       	std	Y+21, r30	; 0x15
+ 586:	fa e0       	ldi	r31, 0x0A	; 10
+ 588:	ff 8b       	std	Y+23, r31	; 0x17
+ 58a:	ed 89       	ldd	r30, Y+21	; 0x15
+ 58c:	fe 89       	ldd	r31, Y+22	; 0x16
+ 58e:	00 80       	ld	r0, Z
+ 590:	8d 89       	ldd	r24, Y+21	; 0x15
+ 592:	9e 89       	ldd	r25, Y+22	; 0x16
+ 594:	01 96       	adiw	r24, 0x01	; 1
+ 596:	9e 8b       	std	Y+22, r25	; 0x16
+ 598:	8d 8b       	std	Y+21, r24	; 0x15
+ 59a:	eb 89       	ldd	r30, Y+19	; 0x13
+ 59c:	fc 89       	ldd	r31, Y+20	; 0x14
+ 59e:	00 82       	st	Z, r0
+ 5a0:	8b 89       	ldd	r24, Y+19	; 0x13
+ 5a2:	9c 89       	ldd	r25, Y+20	; 0x14
+ 5a4:	01 96       	adiw	r24, 0x01	; 1
+ 5a6:	9c 8b       	std	Y+20, r25	; 0x14
+ 5a8:	8b 8b       	std	Y+19, r24	; 0x13
+ 5aa:	9f 89       	ldd	r25, Y+23	; 0x17
+ 5ac:	91 50       	subi	r25, 0x01	; 1
+ 5ae:	9f 8b       	std	Y+23, r25	; 0x17
+ 5b0:	ef 89       	ldd	r30, Y+23	; 0x17
+ 5b2:	ee 23       	and	r30, r30
+ 5b4:	51 f7       	brne	.-44     	; 0x58a <setNumber+0x2a>
+		setPinValue(sevenSeg_Pin_E_Port,sevenSeg_Pin_E_Number,GET_BIT(sevenSeg_Numbers[number],4));
+		setPinValue(sevenSeg_Pin_F_Port,sevenSeg_Pin_F_Number,GET_BIT(sevenSeg_Numbers[number],5));
+		setPinValue(sevenSeg_Pin_G_Port,sevenSeg_Pin_G_Number,GET_BIT(sevenSeg_Numbers[number],6));
+		setPinValue(sevenSeg_Pin_H_Port,sevenSeg_Pin_H_Number,GET_BIT(sevenSeg_Numbers[number],7));
+	#elif sevenSeg_Mode == 0
+		setPinValue(sevenSeg_Pin_A_Port,sevenSeg_Pin_A_Number,GET_BIT(sevenSeg_Numbers[number],0)^0x01);
+ 5b6:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 5b8:	28 2f       	mov	r18, r24
+ 5ba:	30 e0       	ldi	r19, 0x00	; 0
+ 5bc:	ce 01       	movw	r24, r28
+ 5be:	01 96       	adiw	r24, 0x01	; 1
+ 5c0:	fc 01       	movw	r30, r24
+ 5c2:	e2 0f       	add	r30, r18
+ 5c4:	f3 1f       	adc	r31, r19
+ 5c6:	80 81       	ld	r24, Z
+ 5c8:	88 2f       	mov	r24, r24
+ 5ca:	90 e0       	ldi	r25, 0x00	; 0
+ 5cc:	81 70       	andi	r24, 0x01	; 1
+ 5ce:	90 70       	andi	r25, 0x00	; 0
+ 5d0:	1a 8a       	std	Y+18, r1	; 0x12
+ 5d2:	00 97       	sbiw	r24, 0x00	; 0
+ 5d4:	11 f4       	brne	.+4      	; 0x5da <setNumber+0x7a>
+ 5d6:	f1 e0       	ldi	r31, 0x01	; 1
+ 5d8:	fa 8b       	std	Y+18, r31	; 0x12
+ 5da:	81 e4       	ldi	r24, 0x41	; 65
+ 5dc:	65 e0       	ldi	r22, 0x05	; 5
+ 5de:	4a 89       	ldd	r20, Y+18	; 0x12
+ 5e0:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_B_Port,sevenSeg_Pin_B_Number,GET_BIT(sevenSeg_Numbers[number],1)^0x01);
+ 5e4:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 5e6:	28 2f       	mov	r18, r24
+ 5e8:	30 e0       	ldi	r19, 0x00	; 0
+ 5ea:	ce 01       	movw	r24, r28
+ 5ec:	01 96       	adiw	r24, 0x01	; 1
+ 5ee:	fc 01       	movw	r30, r24
+ 5f0:	e2 0f       	add	r30, r18
+ 5f2:	f3 1f       	adc	r31, r19
+ 5f4:	80 81       	ld	r24, Z
+ 5f6:	86 95       	lsr	r24
+ 5f8:	88 2f       	mov	r24, r24
+ 5fa:	90 e0       	ldi	r25, 0x00	; 0
+ 5fc:	81 70       	andi	r24, 0x01	; 1
+ 5fe:	90 70       	andi	r25, 0x00	; 0
+ 600:	19 8a       	std	Y+17, r1	; 0x11
+ 602:	00 97       	sbiw	r24, 0x00	; 0
+ 604:	11 f4       	brne	.+4      	; 0x60a <setNumber+0xaa>
+ 606:	81 e0       	ldi	r24, 0x01	; 1
+ 608:	89 8b       	std	Y+17, r24	; 0x11
+ 60a:	81 e4       	ldi	r24, 0x41	; 65
+ 60c:	64 e0       	ldi	r22, 0x04	; 4
+ 60e:	49 89       	ldd	r20, Y+17	; 0x11
+ 610:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_C_Port,sevenSeg_Pin_C_Number,GET_BIT(sevenSeg_Numbers[number],2)^0x01);
+ 614:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 616:	28 2f       	mov	r18, r24
+ 618:	30 e0       	ldi	r19, 0x00	; 0
+ 61a:	ce 01       	movw	r24, r28
+ 61c:	01 96       	adiw	r24, 0x01	; 1
+ 61e:	fc 01       	movw	r30, r24
+ 620:	e2 0f       	add	r30, r18
+ 622:	f3 1f       	adc	r31, r19
+ 624:	80 81       	ld	r24, Z
+ 626:	86 95       	lsr	r24
+ 628:	86 95       	lsr	r24
+ 62a:	88 2f       	mov	r24, r24
+ 62c:	90 e0       	ldi	r25, 0x00	; 0
+ 62e:	81 70       	andi	r24, 0x01	; 1
+ 630:	90 70       	andi	r25, 0x00	; 0
+ 632:	18 8a       	std	Y+16, r1	; 0x10
+ 634:	00 97       	sbiw	r24, 0x00	; 0
+ 636:	11 f4       	brne	.+4      	; 0x63c <setNumber+0xdc>
+ 638:	91 e0       	ldi	r25, 0x01	; 1
+ 63a:	98 8b       	std	Y+16, r25	; 0x10
+ 63c:	81 e4       	ldi	r24, 0x41	; 65
+ 63e:	61 e0       	ldi	r22, 0x01	; 1
+ 640:	48 89       	ldd	r20, Y+16	; 0x10
+ 642:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_D_Port,sevenSeg_Pin_D_Number,GET_BIT(sevenSeg_Numbers[number],3)^0x01);
+ 646:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 648:	28 2f       	mov	r18, r24
+ 64a:	30 e0       	ldi	r19, 0x00	; 0
+ 64c:	ce 01       	movw	r24, r28
+ 64e:	01 96       	adiw	r24, 0x01	; 1
+ 650:	fc 01       	movw	r30, r24
+ 652:	e2 0f       	add	r30, r18
+ 654:	f3 1f       	adc	r31, r19
+ 656:	80 81       	ld	r24, Z
+ 658:	86 95       	lsr	r24
+ 65a:	86 95       	lsr	r24
+ 65c:	86 95       	lsr	r24
+ 65e:	88 2f       	mov	r24, r24
+ 660:	90 e0       	ldi	r25, 0x00	; 0
+ 662:	81 70       	andi	r24, 0x01	; 1
+ 664:	90 70       	andi	r25, 0x00	; 0
+ 666:	1f 86       	std	Y+15, r1	; 0x0f
+ 668:	00 97       	sbiw	r24, 0x00	; 0
+ 66a:	11 f4       	brne	.+4      	; 0x670 <setNumber+0x110>
+ 66c:	e1 e0       	ldi	r30, 0x01	; 1
+ 66e:	ef 87       	std	Y+15, r30	; 0x0f
+ 670:	81 e4       	ldi	r24, 0x41	; 65
+ 672:	62 e0       	ldi	r22, 0x02	; 2
+ 674:	4f 85       	ldd	r20, Y+15	; 0x0f
+ 676:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_E_Port,sevenSeg_Pin_E_Number,GET_BIT(sevenSeg_Numbers[number],4)^0x01);
+ 67a:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 67c:	28 2f       	mov	r18, r24
+ 67e:	30 e0       	ldi	r19, 0x00	; 0
+ 680:	ce 01       	movw	r24, r28
+ 682:	01 96       	adiw	r24, 0x01	; 1
+ 684:	fc 01       	movw	r30, r24
+ 686:	e2 0f       	add	r30, r18
+ 688:	f3 1f       	adc	r31, r19
+ 68a:	80 81       	ld	r24, Z
+ 68c:	82 95       	swap	r24
+ 68e:	8f 70       	andi	r24, 0x0F	; 15
+ 690:	88 2f       	mov	r24, r24
+ 692:	90 e0       	ldi	r25, 0x00	; 0
+ 694:	81 70       	andi	r24, 0x01	; 1
+ 696:	90 70       	andi	r25, 0x00	; 0
+ 698:	1e 86       	std	Y+14, r1	; 0x0e
+ 69a:	00 97       	sbiw	r24, 0x00	; 0
+ 69c:	11 f4       	brne	.+4      	; 0x6a2 <setNumber+0x142>
+ 69e:	f1 e0       	ldi	r31, 0x01	; 1
+ 6a0:	fe 87       	std	Y+14, r31	; 0x0e
+ 6a2:	81 e4       	ldi	r24, 0x41	; 65
+ 6a4:	63 e0       	ldi	r22, 0x03	; 3
+ 6a6:	4e 85       	ldd	r20, Y+14	; 0x0e
+ 6a8:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_F_Port,sevenSeg_Pin_F_Number,GET_BIT(sevenSeg_Numbers[number],5)^0x01);
+ 6ac:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 6ae:	28 2f       	mov	r18, r24
+ 6b0:	30 e0       	ldi	r19, 0x00	; 0
+ 6b2:	ce 01       	movw	r24, r28
+ 6b4:	01 96       	adiw	r24, 0x01	; 1
+ 6b6:	fc 01       	movw	r30, r24
+ 6b8:	e2 0f       	add	r30, r18
+ 6ba:	f3 1f       	adc	r31, r19
+ 6bc:	80 81       	ld	r24, Z
+ 6be:	82 95       	swap	r24
+ 6c0:	86 95       	lsr	r24
+ 6c2:	87 70       	andi	r24, 0x07	; 7
+ 6c4:	88 2f       	mov	r24, r24
+ 6c6:	90 e0       	ldi	r25, 0x00	; 0
+ 6c8:	81 70       	andi	r24, 0x01	; 1
+ 6ca:	90 70       	andi	r25, 0x00	; 0
+ 6cc:	1d 86       	std	Y+13, r1	; 0x0d
+ 6ce:	00 97       	sbiw	r24, 0x00	; 0
+ 6d0:	11 f4       	brne	.+4      	; 0x6d6 <setNumber+0x176>
+ 6d2:	81 e0       	ldi	r24, 0x01	; 1
+ 6d4:	8d 87       	std	Y+13, r24	; 0x0d
+ 6d6:	81 e4       	ldi	r24, 0x41	; 65
+ 6d8:	66 e0       	ldi	r22, 0x06	; 6
+ 6da:	4d 85       	ldd	r20, Y+13	; 0x0d
+ 6dc:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_G_Port,sevenSeg_Pin_G_Number,GET_BIT(sevenSeg_Numbers[number],6)^0x01);
+ 6e0:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 6e2:	28 2f       	mov	r18, r24
+ 6e4:	30 e0       	ldi	r19, 0x00	; 0
+ 6e6:	ce 01       	movw	r24, r28
+ 6e8:	01 96       	adiw	r24, 0x01	; 1
+ 6ea:	fc 01       	movw	r30, r24
+ 6ec:	e2 0f       	add	r30, r18
+ 6ee:	f3 1f       	adc	r31, r19
+ 6f0:	80 81       	ld	r24, Z
+ 6f2:	82 95       	swap	r24
+ 6f4:	86 95       	lsr	r24
+ 6f6:	86 95       	lsr	r24
+ 6f8:	83 70       	andi	r24, 0x03	; 3
+ 6fa:	88 2f       	mov	r24, r24
+ 6fc:	90 e0       	ldi	r25, 0x00	; 0
+ 6fe:	81 70       	andi	r24, 0x01	; 1
+ 700:	90 70       	andi	r25, 0x00	; 0
+ 702:	1c 86       	std	Y+12, r1	; 0x0c
+ 704:	00 97       	sbiw	r24, 0x00	; 0
+ 706:	11 f4       	brne	.+4      	; 0x70c <setNumber+0x1ac>
+ 708:	91 e0       	ldi	r25, 0x01	; 1
+ 70a:	9c 87       	std	Y+12, r25	; 0x0c
+ 70c:	81 e4       	ldi	r24, 0x41	; 65
+ 70e:	67 e0       	ldi	r22, 0x07	; 7
+ 710:	4c 85       	ldd	r20, Y+12	; 0x0c
+ 712:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		setPinValue(sevenSeg_Pin_H_Port,sevenSeg_Pin_H_Number,GET_BIT(sevenSeg_Numbers[number],7)^0x01);
+ 716:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 718:	28 2f       	mov	r18, r24
+ 71a:	30 e0       	ldi	r19, 0x00	; 0
+ 71c:	ce 01       	movw	r24, r28
+ 71e:	01 96       	adiw	r24, 0x01	; 1
+ 720:	fc 01       	movw	r30, r24
+ 722:	e2 0f       	add	r30, r18
+ 724:	f3 1f       	adc	r31, r19
+ 726:	80 81       	ld	r24, Z
+ 728:	98 2f       	mov	r25, r24
+ 72a:	99 1f       	adc	r25, r25
+ 72c:	99 27       	eor	r25, r25
+ 72e:	99 1f       	adc	r25, r25
+ 730:	81 e0       	ldi	r24, 0x01	; 1
+ 732:	98 27       	eor	r25, r24
+ 734:	81 e4       	ldi	r24, 0x41	; 65
+ 736:	60 e0       	ldi	r22, 0x00	; 0
+ 738:	49 2f       	mov	r20, r25
+ 73a:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+	#endif
+}
+ 73e:	67 96       	adiw	r28, 0x17	; 23
+ 740:	0f b6       	in	r0, 0x3f	; 63
+ 742:	f8 94       	cli
+ 744:	de bf       	out	0x3e, r29	; 62
+ 746:	0f be       	out	0x3f, r0	; 63
+ 748:	cd bf       	out	0x3d, r28	; 61
+ 74a:	cf 91       	pop	r28
+ 74c:	df 91       	pop	r29
+ 74e:	08 95       	ret
+
+00000750 <setLed>:
+
+void setLed(u8 led)
+{
+ 750:	df 93       	push	r29
+ 752:	cf 93       	push	r28
+ 754:	cd b7       	in	r28, 0x3d	; 61
+ 756:	de b7       	in	r29, 0x3e	; 62
+ 758:	65 97       	sbiw	r28, 0x15	; 21
+ 75a:	0f b6       	in	r0, 0x3f	; 63
+ 75c:	f8 94       	cli
+ 75e:	de bf       	out	0x3e, r29	; 62
+ 760:	0f be       	out	0x3f, r0	; 63
+ 762:	cd bf       	out	0x3d, r28	; 61
+ 764:	89 87       	std	Y+9, r24	; 0x09
+	u8 sevenSeg_Numbers[8] = {0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
+ 766:	ce 01       	movw	r24, r28
+ 768:	01 96       	adiw	r24, 0x01	; 1
+ 76a:	9a 8b       	std	Y+18, r25	; 0x12
+ 76c:	89 8b       	std	Y+17, r24	; 0x11
+ 76e:	e6 e7       	ldi	r30, 0x76	; 118
+ 770:	f0 e0       	ldi	r31, 0x00	; 0
+ 772:	fc 8b       	std	Y+20, r31	; 0x14
+ 774:	eb 8b       	std	Y+19, r30	; 0x13
+ 776:	f8 e0       	ldi	r31, 0x08	; 8
+ 778:	fd 8b       	std	Y+21, r31	; 0x15
+ 77a:	eb 89       	ldd	r30, Y+19	; 0x13
+ 77c:	fc 89       	ldd	r31, Y+20	; 0x14
+ 77e:	00 80       	ld	r0, Z
+ 780:	8b 89       	ldd	r24, Y+19	; 0x13
+ 782:	9c 89       	ldd	r25, Y+20	; 0x14
+ 784:	01 96       	adiw	r24, 0x01	; 1
+ 786:	9c 8b       	std	Y+20, r25	; 0x14
+ 788:	8b 8b       	std	Y+19, r24	; 0x13
+ 78a:	e9 89       	ldd	r30, Y+17	; 0x11
+ 78c:	fa 89       	ldd	r31, Y+18	; 0x12
+ 78e:	00 82       	st	Z, r0
+ 790:	89 89       	ldd	r24, Y+17	; 0x11
+ 792:	9a 89       	ldd	r25, Y+18	; 0x12
+ 794:	01 96       	adiw	r24, 0x01	; 1
+ 796:	9a 8b       	std	Y+18, r25	; 0x12
+ 798:	89 8b       	std	Y+17, r24	; 0x11
+ 79a:	9d 89       	ldd	r25, Y+21	; 0x15
+ 79c:	91 50       	subi	r25, 0x01	; 1
+ 79e:	9d 8b       	std	Y+21, r25	; 0x15
+ 7a0:	ed 89       	ldd	r30, Y+21	; 0x15
+ 7a2:	ee 23       	and	r30, r30
+ 7a4:	51 f7       	brne	.-44     	; 0x77a <setLed+0x2a>
+			setPinValue(sevenSeg_Pin_E_Port,sevenSeg_Pin_E_Number,GET_BIT(sevenSeg_Numbers[led],4));
+			setPinValue(sevenSeg_Pin_F_Port,sevenSeg_Pin_F_Number,GET_BIT(sevenSeg_Numbers[led],5));
+			setPinValue(sevenSeg_Pin_G_Port,sevenSeg_Pin_G_Number,GET_BIT(sevenSeg_Numbers[led],6));
+			setPinValue(sevenSeg_Pin_H_Port,sevenSeg_Pin_H_Number,GET_BIT(sevenSeg_Numbers[led],7));
+		#elif sevenSeg_Mode == 0
+			setPinValue(sevenSeg_Pin_A_Port,sevenSeg_Pin_A_Number,GET_BIT(sevenSeg_Numbers[led],0)^0x01);
+ 7a6:	89 85       	ldd	r24, Y+9	; 0x09
+ 7a8:	28 2f       	mov	r18, r24
+ 7aa:	30 e0       	ldi	r19, 0x00	; 0
+ 7ac:	ce 01       	movw	r24, r28
+ 7ae:	01 96       	adiw	r24, 0x01	; 1
+ 7b0:	fc 01       	movw	r30, r24
+ 7b2:	e2 0f       	add	r30, r18
+ 7b4:	f3 1f       	adc	r31, r19
+ 7b6:	80 81       	ld	r24, Z
+ 7b8:	88 2f       	mov	r24, r24
+ 7ba:	90 e0       	ldi	r25, 0x00	; 0
+ 7bc:	81 70       	andi	r24, 0x01	; 1
+ 7be:	90 70       	andi	r25, 0x00	; 0
+ 7c0:	18 8a       	std	Y+16, r1	; 0x10
+ 7c2:	00 97       	sbiw	r24, 0x00	; 0
+ 7c4:	11 f4       	brne	.+4      	; 0x7ca <setLed+0x7a>
+ 7c6:	f1 e0       	ldi	r31, 0x01	; 1
+ 7c8:	f8 8b       	std	Y+16, r31	; 0x10
+ 7ca:	81 e4       	ldi	r24, 0x41	; 65
+ 7cc:	65 e0       	ldi	r22, 0x05	; 5
+ 7ce:	48 89       	ldd	r20, Y+16	; 0x10
+ 7d0:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_B_Port,sevenSeg_Pin_B_Number,GET_BIT(sevenSeg_Numbers[led],1)^0x01);
+ 7d4:	89 85       	ldd	r24, Y+9	; 0x09
+ 7d6:	28 2f       	mov	r18, r24
+ 7d8:	30 e0       	ldi	r19, 0x00	; 0
+ 7da:	ce 01       	movw	r24, r28
+ 7dc:	01 96       	adiw	r24, 0x01	; 1
+ 7de:	fc 01       	movw	r30, r24
+ 7e0:	e2 0f       	add	r30, r18
+ 7e2:	f3 1f       	adc	r31, r19
+ 7e4:	80 81       	ld	r24, Z
+ 7e6:	86 95       	lsr	r24
+ 7e8:	88 2f       	mov	r24, r24
+ 7ea:	90 e0       	ldi	r25, 0x00	; 0
+ 7ec:	81 70       	andi	r24, 0x01	; 1
+ 7ee:	90 70       	andi	r25, 0x00	; 0
+ 7f0:	1f 86       	std	Y+15, r1	; 0x0f
+ 7f2:	00 97       	sbiw	r24, 0x00	; 0
+ 7f4:	11 f4       	brne	.+4      	; 0x7fa <setLed+0xaa>
+ 7f6:	81 e0       	ldi	r24, 0x01	; 1
+ 7f8:	8f 87       	std	Y+15, r24	; 0x0f
+ 7fa:	81 e4       	ldi	r24, 0x41	; 65
+ 7fc:	64 e0       	ldi	r22, 0x04	; 4
+ 7fe:	4f 85       	ldd	r20, Y+15	; 0x0f
+ 800:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_C_Port,sevenSeg_Pin_C_Number,GET_BIT(sevenSeg_Numbers[led],2)^0x01);
+ 804:	89 85       	ldd	r24, Y+9	; 0x09
+ 806:	28 2f       	mov	r18, r24
+ 808:	30 e0       	ldi	r19, 0x00	; 0
+ 80a:	ce 01       	movw	r24, r28
+ 80c:	01 96       	adiw	r24, 0x01	; 1
+ 80e:	fc 01       	movw	r30, r24
+ 810:	e2 0f       	add	r30, r18
+ 812:	f3 1f       	adc	r31, r19
+ 814:	80 81       	ld	r24, Z
+ 816:	86 95       	lsr	r24
+ 818:	86 95       	lsr	r24
+ 81a:	88 2f       	mov	r24, r24
+ 81c:	90 e0       	ldi	r25, 0x00	; 0
+ 81e:	81 70       	andi	r24, 0x01	; 1
+ 820:	90 70       	andi	r25, 0x00	; 0
+ 822:	1e 86       	std	Y+14, r1	; 0x0e
+ 824:	00 97       	sbiw	r24, 0x00	; 0
+ 826:	11 f4       	brne	.+4      	; 0x82c <setLed+0xdc>
+ 828:	91 e0       	ldi	r25, 0x01	; 1
+ 82a:	9e 87       	std	Y+14, r25	; 0x0e
+ 82c:	81 e4       	ldi	r24, 0x41	; 65
+ 82e:	61 e0       	ldi	r22, 0x01	; 1
+ 830:	4e 85       	ldd	r20, Y+14	; 0x0e
+ 832:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_D_Port,sevenSeg_Pin_D_Number,GET_BIT(sevenSeg_Numbers[led],3)^0x01);
+ 836:	89 85       	ldd	r24, Y+9	; 0x09
+ 838:	28 2f       	mov	r18, r24
+ 83a:	30 e0       	ldi	r19, 0x00	; 0
+ 83c:	ce 01       	movw	r24, r28
+ 83e:	01 96       	adiw	r24, 0x01	; 1
+ 840:	fc 01       	movw	r30, r24
+ 842:	e2 0f       	add	r30, r18
+ 844:	f3 1f       	adc	r31, r19
+ 846:	80 81       	ld	r24, Z
+ 848:	86 95       	lsr	r24
+ 84a:	86 95       	lsr	r24
+ 84c:	86 95       	lsr	r24
+ 84e:	88 2f       	mov	r24, r24
+ 850:	90 e0       	ldi	r25, 0x00	; 0
+ 852:	81 70       	andi	r24, 0x01	; 1
+ 854:	90 70       	andi	r25, 0x00	; 0
+ 856:	1d 86       	std	Y+13, r1	; 0x0d
+ 858:	00 97       	sbiw	r24, 0x00	; 0
+ 85a:	11 f4       	brne	.+4      	; 0x860 <__stack+0x1>
+ 85c:	e1 e0       	ldi	r30, 0x01	; 1
+ 85e:	ed 87       	std	Y+13, r30	; 0x0d
+ 860:	81 e4       	ldi	r24, 0x41	; 65
+ 862:	62 e0       	ldi	r22, 0x02	; 2
+ 864:	4d 85       	ldd	r20, Y+13	; 0x0d
+ 866:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_E_Port,sevenSeg_Pin_E_Number,GET_BIT(sevenSeg_Numbers[led],4)^0x01);
+ 86a:	89 85       	ldd	r24, Y+9	; 0x09
+ 86c:	28 2f       	mov	r18, r24
+ 86e:	30 e0       	ldi	r19, 0x00	; 0
+ 870:	ce 01       	movw	r24, r28
+ 872:	01 96       	adiw	r24, 0x01	; 1
+ 874:	fc 01       	movw	r30, r24
+ 876:	e2 0f       	add	r30, r18
+ 878:	f3 1f       	adc	r31, r19
+ 87a:	80 81       	ld	r24, Z
+ 87c:	82 95       	swap	r24
+ 87e:	8f 70       	andi	r24, 0x0F	; 15
+ 880:	88 2f       	mov	r24, r24
+ 882:	90 e0       	ldi	r25, 0x00	; 0
+ 884:	81 70       	andi	r24, 0x01	; 1
+ 886:	90 70       	andi	r25, 0x00	; 0
+ 888:	1c 86       	std	Y+12, r1	; 0x0c
+ 88a:	00 97       	sbiw	r24, 0x00	; 0
+ 88c:	11 f4       	brne	.+4      	; 0x892 <__stack+0x33>
+ 88e:	f1 e0       	ldi	r31, 0x01	; 1
+ 890:	fc 87       	std	Y+12, r31	; 0x0c
+ 892:	81 e4       	ldi	r24, 0x41	; 65
+ 894:	63 e0       	ldi	r22, 0x03	; 3
+ 896:	4c 85       	ldd	r20, Y+12	; 0x0c
+ 898:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_F_Port,sevenSeg_Pin_F_Number,GET_BIT(sevenSeg_Numbers[led],5)^0x01);
+ 89c:	89 85       	ldd	r24, Y+9	; 0x09
+ 89e:	28 2f       	mov	r18, r24
+ 8a0:	30 e0       	ldi	r19, 0x00	; 0
+ 8a2:	ce 01       	movw	r24, r28
+ 8a4:	01 96       	adiw	r24, 0x01	; 1
+ 8a6:	fc 01       	movw	r30, r24
+ 8a8:	e2 0f       	add	r30, r18
+ 8aa:	f3 1f       	adc	r31, r19
+ 8ac:	80 81       	ld	r24, Z
+ 8ae:	82 95       	swap	r24
+ 8b0:	86 95       	lsr	r24
+ 8b2:	87 70       	andi	r24, 0x07	; 7
+ 8b4:	88 2f       	mov	r24, r24
+ 8b6:	90 e0       	ldi	r25, 0x00	; 0
+ 8b8:	81 70       	andi	r24, 0x01	; 1
+ 8ba:	90 70       	andi	r25, 0x00	; 0
+ 8bc:	1b 86       	std	Y+11, r1	; 0x0b
+ 8be:	00 97       	sbiw	r24, 0x00	; 0
+ 8c0:	11 f4       	brne	.+4      	; 0x8c6 <__stack+0x67>
+ 8c2:	81 e0       	ldi	r24, 0x01	; 1
+ 8c4:	8b 87       	std	Y+11, r24	; 0x0b
+ 8c6:	81 e4       	ldi	r24, 0x41	; 65
+ 8c8:	66 e0       	ldi	r22, 0x06	; 6
+ 8ca:	4b 85       	ldd	r20, Y+11	; 0x0b
+ 8cc:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_G_Port,sevenSeg_Pin_G_Number,GET_BIT(sevenSeg_Numbers[led],6)^0x01);
+ 8d0:	89 85       	ldd	r24, Y+9	; 0x09
+ 8d2:	28 2f       	mov	r18, r24
+ 8d4:	30 e0       	ldi	r19, 0x00	; 0
+ 8d6:	ce 01       	movw	r24, r28
+ 8d8:	01 96       	adiw	r24, 0x01	; 1
+ 8da:	fc 01       	movw	r30, r24
+ 8dc:	e2 0f       	add	r30, r18
+ 8de:	f3 1f       	adc	r31, r19
+ 8e0:	80 81       	ld	r24, Z
+ 8e2:	82 95       	swap	r24
+ 8e4:	86 95       	lsr	r24
+ 8e6:	86 95       	lsr	r24
+ 8e8:	83 70       	andi	r24, 0x03	; 3
+ 8ea:	88 2f       	mov	r24, r24
+ 8ec:	90 e0       	ldi	r25, 0x00	; 0
+ 8ee:	81 70       	andi	r24, 0x01	; 1
+ 8f0:	90 70       	andi	r25, 0x00	; 0
+ 8f2:	1a 86       	std	Y+10, r1	; 0x0a
+ 8f4:	00 97       	sbiw	r24, 0x00	; 0
+ 8f6:	11 f4       	brne	.+4      	; 0x8fc <__stack+0x9d>
+ 8f8:	91 e0       	ldi	r25, 0x01	; 1
+ 8fa:	9a 87       	std	Y+10, r25	; 0x0a
+ 8fc:	81 e4       	ldi	r24, 0x41	; 65
+ 8fe:	67 e0       	ldi	r22, 0x07	; 7
+ 900:	4a 85       	ldd	r20, Y+10	; 0x0a
+ 902:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+			setPinValue(sevenSeg_Pin_H_Port,sevenSeg_Pin_H_Number,GET_BIT(sevenSeg_Numbers[led],7)^0x01);
+ 906:	89 85       	ldd	r24, Y+9	; 0x09
+ 908:	28 2f       	mov	r18, r24
+ 90a:	30 e0       	ldi	r19, 0x00	; 0
+ 90c:	ce 01       	movw	r24, r28
+ 90e:	01 96       	adiw	r24, 0x01	; 1
+ 910:	fc 01       	movw	r30, r24
+ 912:	e2 0f       	add	r30, r18
+ 914:	f3 1f       	adc	r31, r19
+ 916:	80 81       	ld	r24, Z
+ 918:	98 2f       	mov	r25, r24
+ 91a:	99 1f       	adc	r25, r25
+ 91c:	99 27       	eor	r25, r25
+ 91e:	99 1f       	adc	r25, r25
+ 920:	81 e0       	ldi	r24, 0x01	; 1
+ 922:	98 27       	eor	r25, r24
+ 924:	81 e4       	ldi	r24, 0x41	; 65
+ 926:	60 e0       	ldi	r22, 0x00	; 0
+ 928:	49 2f       	mov	r20, r25
+ 92a:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+		#endif
+}
+ 92e:	65 96       	adiw	r28, 0x15	; 21
+ 930:	0f b6       	in	r0, 0x3f	; 63
+ 932:	f8 94       	cli
+ 934:	de bf       	out	0x3e, r29	; 62
+ 936:	0f be       	out	0x3f, r0	; 63
+ 938:	cd bf       	out	0x3d, r28	; 61
+ 93a:	cf 91       	pop	r28
+ 93c:	df 91       	pop	r29
+ 93e:	08 95       	ret
+
+00000940 <enableSevenSegment>:
+
+
+
+void enableSevenSegment(u8 sevenSegNum)
+{
+ 940:	df 93       	push	r29
+ 942:	cf 93       	push	r28
+ 944:	0f 92       	push	r0
+ 946:	cd b7       	in	r28, 0x3d	; 61
+ 948:	de b7       	in	r29, 0x3e	; 62
+ 94a:	89 83       	std	Y+1, r24	; 0x01
+	#if sevenSeg1_Mode == 1
+		setPinValue(sevenSeg_Enable_Port[sevenSegNum],sevenSeg_Enable_Pins[sevenSegNum],0x00);
+	#elif sevenSeg1_Mode == 0
+		setPinValue(sevenSeg_Enable_Port[sevenSegNum],sevenSeg_Enable_Pins[sevenSegNum],0x01);
+ 94c:	89 81       	ldd	r24, Y+1	; 0x01
+ 94e:	88 2f       	mov	r24, r24
+ 950:	90 e0       	ldi	r25, 0x00	; 0
+ 952:	fc 01       	movw	r30, r24
+ 954:	e0 5a       	subi	r30, 0xA0	; 160
+ 956:	ff 4f       	sbci	r31, 0xFF	; 255
+ 958:	20 81       	ld	r18, Z
+ 95a:	89 81       	ldd	r24, Y+1	; 0x01
+ 95c:	88 2f       	mov	r24, r24
+ 95e:	90 e0       	ldi	r25, 0x00	; 0
+ 960:	fc 01       	movw	r30, r24
+ 962:	ea 59       	subi	r30, 0x9A	; 154
+ 964:	ff 4f       	sbci	r31, 0xFF	; 255
+ 966:	90 81       	ld	r25, Z
+ 968:	82 2f       	mov	r24, r18
+ 96a:	69 2f       	mov	r22, r25
+ 96c:	41 e0       	ldi	r20, 0x01	; 1
+ 96e:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+	#endif
+	//setNumber(lastNumber);
+}
+ 972:	0f 90       	pop	r0
+ 974:	cf 91       	pop	r28
+ 976:	df 91       	pop	r29
+ 978:	08 95       	ret
+
+0000097a <disableSevenSegment>:
+void disableSevenSegment(u8 sevenSegNum)
+{
+ 97a:	df 93       	push	r29
+ 97c:	cf 93       	push	r28
+ 97e:	0f 92       	push	r0
+ 980:	cd b7       	in	r28, 0x3d	; 61
+ 982:	de b7       	in	r29, 0x3e	; 62
+ 984:	89 83       	std	Y+1, r24	; 0x01
+	#if sevenSeg1_Mode == 1
+		setPinValue(sevenSeg_Enable_Port[sevenSegNum],sevenSeg_Enable_Pins[sevenSegNum],0x01);
+	#elif sevenSeg_Mode == 0
+		setPinValue(sevenSeg_Enable_Port[sevenSegNum],sevenSeg_Enable_Pins[sevenSegNum],0x00);
+ 986:	89 81       	ldd	r24, Y+1	; 0x01
+ 988:	88 2f       	mov	r24, r24
+ 98a:	90 e0       	ldi	r25, 0x00	; 0
+ 98c:	fc 01       	movw	r30, r24
+ 98e:	e0 5a       	subi	r30, 0xA0	; 160
+ 990:	ff 4f       	sbci	r31, 0xFF	; 255
+ 992:	20 81       	ld	r18, Z
+ 994:	89 81       	ldd	r24, Y+1	; 0x01
+ 996:	88 2f       	mov	r24, r24
+ 998:	90 e0       	ldi	r25, 0x00	; 0
+ 99a:	fc 01       	movw	r30, r24
+ 99c:	ea 59       	subi	r30, 0x9A	; 154
+ 99e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 9a0:	90 81       	ld	r25, Z
+ 9a2:	82 2f       	mov	r24, r18
+ 9a4:	69 2f       	mov	r22, r25
+ 9a6:	40 e0       	ldi	r20, 0x00	; 0
+ 9a8:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+	#endif
+}
+ 9ac:	0f 90       	pop	r0
+ 9ae:	cf 91       	pop	r28
+ 9b0:	df 91       	pop	r29
+ 9b2:	08 95       	ret
+
+000009b4 <main>:
+#include "STD_TYPES.h"
+#include "PORT_interface.h"
+//#include "SEVEN_SEGMENT-interface.h"
+#include "DIO_interface.h"
+void main(void)
+{
+ 9b4:	df 93       	push	r29
+ 9b6:	cf 93       	push	r28
+ 9b8:	cd b7       	in	r28, 0x3d	; 61
+ 9ba:	de b7       	in	r29, 0x3e	; 62
+
+	//setPinDir('C',0,1);
+	//setPinDir('C',1,0);
+
+	portInitialize();
+ 9bc:	0e 94 8a 02 	call	0x514	; 0x514 <portInitialize>
+		_delay_ms(200);
+		rakam--;
+		}*/
+	//if(rakam>9){rakam=0;}
+	//if(rakam<0){rakam=9;}
+	if(getPinValue('D',0)==0)
+ 9c0:	84 e4       	ldi	r24, 0x44	; 68
+ 9c2:	60 e0       	ldi	r22, 0x00	; 0
+ 9c4:	0e 94 11 02 	call	0x422	; 0x422 <getPinValue>
+ 9c8:	88 23       	and	r24, r24
+ 9ca:	31 f4       	brne	.+12     	; 0x9d8 <main+0x24>
+		{
+			setPinValue('C',1,1);
+ 9cc:	83 e4       	ldi	r24, 0x43	; 67
+ 9ce:	61 e0       	ldi	r22, 0x01	; 1
+ 9d0:	41 e0       	ldi	r20, 0x01	; 1
+ 9d2:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+ 9d6:	f4 cf       	rjmp	.-24     	; 0x9c0 <main+0xc>
+			//_delay_ms(200);
+		}
+	else{
+		setPinValue('C',1,0);
+ 9d8:	83 e4       	ldi	r24, 0x43	; 67
+ 9da:	61 e0       	ldi	r22, 0x01	; 1
+ 9dc:	40 e0       	ldi	r20, 0x00	; 0
+ 9de:	0e 94 2d 01 	call	0x25a	; 0x25a <setPinValue>
+ 9e2:	ee cf       	rjmp	.-36     	; 0x9c0 <main+0xc>
+
+000009e4 <_exit>:
+ 9e4:	f8 94       	cli
+
+000009e6 <__stop_program>:
+ 9e6:	ff cf       	rjmp	.-2      	; 0x9e6 <__stop_program>

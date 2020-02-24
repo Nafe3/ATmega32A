@@ -1,0 +1,51 @@
+16:44:35 **** Incremental Build of configuration Debug for project 4_DipSwitch-AVR_OneWire_STM_8Leds ****
+make all 
+Building file: ../DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include-fixed" -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
+Finished building: ../DIO_program.c
+ 
+Building file: ../PORT_program.c
+Invoking: AVR Compiler
+avr-gcc -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include-fixed" -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_program.d" -MT"PORT_program.o" -c -o "PORT_program.o" "../PORT_program.c"
+Finished building: ../PORT_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include-fixed" -I"D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\lib\gcc\avr\4.3.3\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:16: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: 4_DipSwitch-AVR_OneWire_STM_8Leds.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,4_DipSwitch-AVR_OneWire_STM_8Leds.map -mmcu=atmega32 -o "4_DipSwitch-AVR_OneWire_STM_8Leds.elf"  ./DIO_program.o ./PORT_program.o ./main.o   
+Finished building target: 4_DipSwitch-AVR_OneWire_STM_8Leds.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 4_DipSwitch-AVR_OneWire_STM_8Leds.elf  >"4_DipSwitch-AVR_OneWire_STM_8Leds.lss"
+Finished building: 4_DipSwitch-AVR_OneWire_STM_8Leds.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 4_DipSwitch-AVR_OneWire_STM_8Leds.elf  "4_DipSwitch-AVR_OneWire_STM_8Leds.hex"
+Finished building: 4_DipSwitch-AVR_OneWire_STM_8Leds.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 4_DipSwitch-AVR_OneWire_STM_8Leds.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1594 bytes (4.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:44:39 Build Finished (took 3s.143ms)
+

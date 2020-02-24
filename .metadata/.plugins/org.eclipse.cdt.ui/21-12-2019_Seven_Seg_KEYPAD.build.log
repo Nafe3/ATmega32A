@@ -1,0 +1,20 @@
+18:41:45 **** Incremental Build of configuration Debug for project 21-12-2019_Seven_Seg_KEYPAD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 21-12-2019_Seven_Seg_KEYPAD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6272 bytes (19.1% Full)
+(.text + .data + .bootloader)
+
+Data:         71 bytes (3.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:41:45 Build Finished (took 267ms)
+

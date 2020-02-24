@@ -1,0 +1,41 @@
+13:58:42 **** Incremental Build of configuration Debug for project 21-12-2019_Seven_Seg_Assignment ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:1:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:7: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: 21-12-2019_Seven_Seg_Assignment.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,21-12-2019_Seven_Seg_Assignment.map -mmcu=atmega32 -o "21-12-2019_Seven_Seg_Assignment.elf"  ./DIO_program.o ./PORT_program.o ./SEVEN_SEGMENT-program.o ./main.o   
+Finished building target: 21-12-2019_Seven_Seg_Assignment.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 21-12-2019_Seven_Seg_Assignment.elf  >"21-12-2019_Seven_Seg_Assignment.lss"
+Finished building: 21-12-2019_Seven_Seg_Assignment.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 21-12-2019_Seven_Seg_Assignment.elf  "21-12-2019_Seven_Seg_Assignment.hex"
+Finished building: 21-12-2019_Seven_Seg_Assignment.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 21-12-2019_Seven_Seg_Assignment.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5454 bytes (16.6% Full)
+(.text + .data + .bootloader)
+
+Data:         31 bytes (1.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:58:42 Build Finished (took 730ms)
+

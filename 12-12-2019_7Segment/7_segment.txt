@@ -1,0 +1,20 @@
+Displays:
+
+1) 7 segment display
+2) Alphanumeric display
+
+Disadvantages:
+
+1) pins
+2) consume power
+3) Limited characters
+
+
+Common cathode:
+common pin -> vcc
+all other pins are normally high(1) ... if we want to turn a led on, we have to clear it(0)
+
+
+Common cathode:
+common pin -> vcc
+all other pins are normally high(1) ... if we want to turn a led on, we have to clear it(0)

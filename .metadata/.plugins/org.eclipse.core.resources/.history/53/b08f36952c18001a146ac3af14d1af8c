@@ -1,0 +1,50 @@
+/*
+ * main.c
+ *
+ *  Created on: Dec 4, 2019
+ *      Author: Nafe3
+ */
+#include<util/delay.h>
+
+void main(void)
+{
+	SetPinDirection('D',0,1);
+	SetPinDirection('D',1,1);
+	SetPinDirection('D',2,1);
+	SetPinDirection('D',3,1);
+	SetPinDirection('D',4,1);
+	SetPinDirection('D',5,1);
+	SetPinDirection('D',6,1);
+	SetPinDirection('D',7,1);
+
+	while(1)
+    {
+		SetPinValue('D',0,1);
+		SetPinValue('D',1,1);
+		SetPinValue('D',2,1);
+		SetPinValue('D',3,1);
+		SetPinValue('D',4,1);
+		SetPinValue('D',5,1);
+		SetPinValue('D',6,1);
+		SetPinValue('D',7,1);
+		for(double i=0;i<250;i++)
+		{
+
+		}
+
+		SetPinValue('D',0,0);
+		SetPinValue('D',1,0);
+		SetPinValue('D',2,0);
+		SetPinValue('D',3,0);
+		SetPinValue('D',4,0);
+		SetPinValue('D',5,0);
+		SetPinValue('D',6,0);
+		SetPinValue('D',7,0);
+		for(int i=0;i<250000;i++)
+		{
+
+		}
+    }
+}
+
+

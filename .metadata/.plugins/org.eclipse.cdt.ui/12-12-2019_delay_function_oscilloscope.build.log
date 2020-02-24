@@ -1,0 +1,20 @@
+15:18:01 **** Incremental Build of configuration Debug for project 12-12-2019_delay_function_oscilloscope ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 12-12-2019_delay_function_oscilloscope.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3538 bytes (10.8% Full)
+(.text + .data + .bootloader)
+
+Data:        264 bytes (12.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:18:01 Build Finished (took 174ms)
+

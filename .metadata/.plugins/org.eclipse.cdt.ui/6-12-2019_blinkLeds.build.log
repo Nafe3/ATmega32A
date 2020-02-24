@@ -1,0 +1,11 @@
+17:39:47 **** Incremental Build of configuration Debug for project 6-12-2019_blinkLeds ****
+make all 
+main.d:1: warning: NUL character seen; rest of line ignored
+Building target: 6-12-2019_blinkLeds.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,6-12-2019_blinkLeds.map -mmcu=atmega32 -o "6-12-2019_blinkLeds.elf"  ./DIO_program.o ./main.o   
+./main.o: file not recognized: File format not recognized
+make: *** [6-12-2019_blinkLeds.elf] Error 1
+
+17:39:48 Build Finished (took 512ms)
+

@@ -1,0 +1,24 @@
+#include <util/delay.h>
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
+#include "PORT_interface.h"
+//#include "DIO_interface.h"
+
+void main(void)
+{
+	//portInitialize();
+	//setPinDir('C',8,1);
+	DDRC=0b10000000;
+
+	while(1)
+	{
+			setPinValue('C',8,1);
+			//_delay_ms(1000);
+			//setPinValue('C',8,1);
+			//_delay_ms(1000);
+			//setPinValue('C',8,1);
+			//_delay_ms(1000);
+			//setPinValue('C',8,1);
+			//_delay_ms(1000);
+	}
+}
