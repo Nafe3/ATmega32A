@@ -427,3 +427,217 @@ avrdude done.  Thank you.
 
 Finished building: avrdudedummy
  
+22:00:57 **** Build of configuration Debug for project 26-2-2020_ADC_potentiometer_LEDs ****
+make all 
+Building file: ../ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
+Finished building: ../ADC_program.c
+ 
+Building file: ../DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
+Finished building: ../DIO_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: 26-2-2020_ADC_potentiometer_LEDs.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,26-2-2020_ADC_potentiometer_LEDs.map -mmcu=atmega32 -o "26-2-2020_ADC_potentiometer_LEDs.elf"  ./ADC_program.o ./DIO_program.o ./main.o   
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o:(.init9+0x0): undefined reference to `main'
+make: *** [26-2-2020_ADC_potentiometer_LEDs.elf] Error 1
+13:50:44 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6654 bytes (20.3% Full)
+(.text + .data + .bootloader)
+
+Data:         40 bytes (2.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:16-1-2020_1_LCD_move_words_signwave.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0x99:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+13:50:46 **** Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+make all 
+Building file: ../DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
+Finished building: ../DIO_program.c
+ 
+Building file: ../EXTI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"EXTI_program.d" -MT"EXTI_program.o" -c -o "EXTI_program.o" "../EXTI_program.c"
+Finished building: ../EXTI_program.c
+ 
+Building file: ../LCD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"LCD_program.d" -MT"LCD_program.o" -c -o "LCD_program.o" "../LCD_program.c"
+In file included from ../LCD_program.c:14:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../LCD_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:4:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:28: warning: implicit declaration of function 'portInitialize'
+../main.c:32: error: 'B01110' undeclared (first use in this function)
+../main.c:32: error: (Each undeclared identifier is reported only once
+../main.c:32: error: for each function it appears in.)
+../main.c:33: warning: left-hand operand of comma expression has no effect
+../main.c:34: warning: left-hand operand of comma expression has no effect
+../main.c:35: error: 'B00100' undeclared (first use in this function)
+../main.c:35: warning: left-hand operand of comma expression has no effect
+../main.c:36: warning: left-hand operand of comma expression has no effect
+../main.c:37: error: 'B10101' undeclared (first use in this function)
+../main.c:37: warning: left-hand operand of comma expression has no effect
+../main.c:38: error: 'B01010' undeclared (first use in this function)
+../main.c:38: warning: left-hand operand of comma expression has no effect
+../main.c:39: error: 'B10001' undeclared (first use in this function)
+../main.c:41: warning: left-hand operand of comma expression has no effect
+../main.c:41: error: expected ';' before 'B01110'
+make: *** [main.o] Error 1
+13:50:47 **** Build of configuration Debug for project 9-3-2020_ADC_Driver ****
+make all 
+Building file: ../ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
+In file included from ../ADC_program.c:4:
+../ADC_interface.h:7: error: expected ')' before 'channel'
+make: *** [ADC_program.o] Error 1
+13:52:07 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6654 bytes (20.3% Full)
+(.text + .data + .bootloader)
+
+Data:         40 bytes (2.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:16-1-2020_1_LCD_move_words_signwave.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0x99:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+13:52:07 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:4:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:28: warning: implicit declaration of function 'portInitialize'
+../main.c:32: error: 'B01110' undeclared (first use in this function)
+../main.c:32: error: (Each undeclared identifier is reported only once
+../main.c:32: error: for each function it appears in.)
+../main.c:33: warning: left-hand operand of comma expression has no effect
+../main.c:34: warning: left-hand operand of comma expression has no effect
+../main.c:35: error: 'B00100' undeclared (first use in this function)
+../main.c:35: warning: left-hand operand of comma expression has no effect
+../main.c:36: warning: left-hand operand of comma expression has no effect
+../main.c:37: error: 'B10101' undeclared (first use in this function)
+../main.c:37: warning: left-hand operand of comma expression has no effect
+../main.c:38: error: 'B01010' undeclared (first use in this function)
+../main.c:38: warning: left-hand operand of comma expression has no effect
+../main.c:39: error: 'B10001' undeclared (first use in this function)
+../main.c:41: warning: left-hand operand of comma expression has no effect
+../main.c:41: error: expected ';' before 'B01110'
+make: *** [main.o] Error 1
+13:52:08 **** Incremental Build of configuration Debug for project 9-3-2020_ADC_Driver ****
+make all 
+Building file: ../ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
+Finished building: ../ADC_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: 9-3-2020_ADC_Driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,9-3-2020_ADC_Driver.map -mmcu=atmega16 -o "9-3-2020_ADC_Driver.elf"  ./ADC_program.o ./main.o   
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [9-3-2020_ADC_Driver.elf] Error 1
+13:53:43 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6654 bytes (20.3% Full)
+(.text + .data + .bootloader)
+
+Data:         40 bytes (2.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:16-1-2020_1_LCD_move_words_signwave.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0x99:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+13:53:43 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:4:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:28: warning: implicit declaration of function 'portInitialize'
+../main.c:32: error: 'B01110' undeclared (first use in this function)
+../main.c:32: error: (Each undeclared identifier is reported only once
+../main.c:32: error: for each function it appears in.)
+../main.c:33: warning: left-hand operand of comma expression has no effect
+../main.c:34: warning: left-hand operand of comma expression has no effect
+../main.c:35: error: 'B00100' undeclared (first use in this function)
+../main.c:35: warning: left-hand operand of comma expression has no effect
+../main.c:36: warning: left-hand operand of comma expression has no effect
+../main.c:37: error: 'B10101' undeclared (first use in this function)
+../main.c:37: warning: left-hand operand of comma expression has no effect
+../main.c:38: error: 'B01010' undeclared (first use in this function)
+../main.c:38: warning: left-hand operand of comma expression has no effect
+../main.c:39: error: 'B10001' undeclared (first use in this function)
+../main.c:41: warning: left-hand operand of comma expression has no effect
+../main.c:41: error: expected ';' before 'B01110'
+make: *** [main.o] Error 1
+13:53:44 **** Incremental Build of configuration Debug for project 9-3-2020_ADC_Driver ****
+make all 
+Building file: ../ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
+Finished building: ../ADC_program.c
+ 
+Building target: 9-3-2020_ADC_Driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,9-3-2020_ADC_Driver.map -mmcu=atmega16 -o "9-3-2020_ADC_Driver.elf"  ./ADC_program.o ./main.o   
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [9-3-2020_ADC_Driver.elf] Error 1

@@ -1,0 +1,28 @@
+13:53:43 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:4:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:28: warning: implicit declaration of function 'portInitialize'
+../main.c:32: error: 'B01110' undeclared (first use in this function)
+../main.c:32: error: (Each undeclared identifier is reported only once
+../main.c:32: error: for each function it appears in.)
+../main.c:33: warning: left-hand operand of comma expression has no effect
+../main.c:34: warning: left-hand operand of comma expression has no effect
+../main.c:35: error: 'B00100' undeclared (first use in this function)
+../main.c:35: warning: left-hand operand of comma expression has no effect
+../main.c:36: warning: left-hand operand of comma expression has no effect
+../main.c:37: error: 'B10101' undeclared (first use in this function)
+../main.c:37: warning: left-hand operand of comma expression has no effect
+../main.c:38: error: 'B01010' undeclared (first use in this function)
+../main.c:38: warning: left-hand operand of comma expression has no effect
+../main.c:39: error: 'B10001' undeclared (first use in this function)
+../main.c:41: warning: left-hand operand of comma expression has no effect
+../main.c:41: error: expected ';' before 'B01110'
+make: *** [main.o] Error 1
+
+13:53:43 Build Finished (took 271ms)
+

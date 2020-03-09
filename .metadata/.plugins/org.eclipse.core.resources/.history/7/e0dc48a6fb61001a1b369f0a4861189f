@@ -1,0 +1,19 @@
+#ifndef ADC_PRIVATE_H_
+#define ADC_PRIVATE_H_
+
+/*Bit Definitions for ADMUX Reg Pins*/
+
+
+/*Bit Definitions for ADCSRA Pins*/
+
+/*Macros for Resolution*/
+ #define ADC_u8_8BIT_RESOLUTION			1
+ #define ADC_u8_10BIT_RESOLUTION		2
+
+
+
+
+
+
+
+#endif 
