@@ -1,0 +1,14 @@
+#ifndef USART_PRIVATE_H_
+#define USART_PRIVATE_H_
+
+#define 	UART_PARITY_DISABLED 0U
+#define 	UART_PARITY_EVEN	 1U
+#define  	UART_PARITY_ODD		 2U
+
+
+#define 	UART_BAUD_4800 		 0U
+#define 	UART_BAUD_9600		 1U
+#define  	UART_BAUD_115200	 2U
+
+
+#endif 

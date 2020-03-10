@@ -24,4 +24,31 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>de.innot.avreclipse.core.avrnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>ADC_config.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/COTS/01%20-%20MCAL/01-AVR/05-ADC/ADC_config.h</locationURI>
+		</link>
+		<link>
+			<name>ADC_interface.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/COTS/01%20-%20MCAL/01-AVR/05-ADC/ADC_interface.h</locationURI>
+		</link>
+		<link>
+			<name>ADC_private.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/COTS/01%20-%20MCAL/01-AVR/05-ADC/ADC_private.h</locationURI>
+		</link>
+		<link>
+			<name>ADC_program.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/COTS/01%20-%20MCAL/01-AVR/05-ADC/ADC_program.c</locationURI>
+		</link>
+		<link>
+			<name>ADC_register.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/COTS/01%20-%20MCAL/01-AVR/05-ADC/ADC_register.h</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

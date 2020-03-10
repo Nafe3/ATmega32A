@@ -1,4 +1,4 @@
-13:53:43 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+21:41:56 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -24,5 +24,5 @@ d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/..
 ../main.c:41: error: expected ';' before 'B01110'
 make: *** [main.o] Error 1
 
-13:53:43 Build Finished (took 271ms)
+21:41:57 Build Finished (took 273ms)
 

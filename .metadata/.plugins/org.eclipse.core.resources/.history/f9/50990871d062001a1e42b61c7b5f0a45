@@ -1,0 +1,26 @@
+#ifndef USART_CONFIG_H_
+#define USART_CONFIG_H_
+
+/*Options:	UART_PARITY_DISABLED
+ * 			UART_PARITY_EVEN
+ * 			UART_PARITY_ODD*/
+#define UART_u8_PARITY 			UART_PARITY_DISABLED
+
+/*Baud Rate*/
+#define UART_u8_BAUD_RATE		UART_BAUD_9600
+
+/*Stop bits*/
+#define	UART_u8_STOP_BITS		UART_STOP_1_BIT
+
+/*Options:	 UART_SYS_FREQ_8M
+*            UART_SYS_FREQ_12M
+*            UART_SYS_FREQ_16M
+*/
+
+#define UART_u8_SYS_FREQ
+
+
+
+
+
+#endif 

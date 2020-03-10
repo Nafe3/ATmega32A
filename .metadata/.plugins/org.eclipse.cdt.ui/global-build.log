@@ -1,643 +1,235 @@
-21:09:44 **** Incremental Build of configuration Debug for project 21-1-2020_Interrupt ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:4:
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../main.c
- 
-Building target: 21-1-2020_Interrupt.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,21-1-2020_Interrupt.map -mmcu=atmega32 -o "21-1-2020_Interrupt.elf"  ./DIO_program.o ./EXTI_program.o ./main.o   
-Finished building target: 21-1-2020_Interrupt.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 21-1-2020_Interrupt.elf  >"21-1-2020_Interrupt.lss"
-Finished building: 21-1-2020_Interrupt.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 21-1-2020_Interrupt.elf  "21-1-2020_Interrupt.hex"
-Finished building: 21-1-2020_Interrupt.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 21-1-2020_Interrupt.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    1666 bytes (5.1% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:21-1-2020_Interrupt.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd9:m
-
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: AVR device initialized and ready to accept instructions
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: Device signature = 0x1e9502
-avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
-         To disable this feature, specify the -D option.
-avrdude: erasing chip
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: reading input file "21-1-2020_Interrupt.hex"
-avrdude: input file 21-1-2020_Interrupt.hex auto detected as Intel Hex
-avrdude: writing flash (1666 bytes):
-
-Writing | ################################################## | 100% 1.54s
-
-avrdude: 1666 bytes of flash written
-avrdude: verifying flash memory against 21-1-2020_Interrupt.hex:
-avrdude: load data flash data from input file 21-1-2020_Interrupt.hex:
-avrdude: input file 21-1-2020_Interrupt.hex auto detected as Intel Hex
-avrdude: input file 21-1-2020_Interrupt.hex contains 1666 bytes
-avrdude: reading on-chip flash data:
-
-Reading | ################################################## | 100% 0.84s
-
-avrdude: verifying ...
-avrdude: 1666 bytes of flash verified
-avrdude: reading input file "0xff"
-avrdude: writing lfuse (1 bytes):
-
-Writing | ################################################## | 100% 0.00s
-
-avrdude: 1 bytes of lfuse written
-avrdude: verifying lfuse memory against 0xff:
-avrdude: load data lfuse data from input file 0xff:
-avrdude: input file 0xff contains 1 bytes
-avrdude: reading on-chip lfuse data:
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: verifying ...
-avrdude: 1 bytes of lfuse verified
-avrdude: reading input file "0xd9"
-avrdude: writing hfuse (1 bytes):
-
-Writing | ################################################## | 100% 0.00s
-
-avrdude: 1 bytes of hfuse written
-avrdude: verifying hfuse memory against 0xd9:
-avrdude: load data hfuse data from input file 0xd9:
-avrdude: input file 0xd9 contains 1 bytes
-avrdude: reading on-chip hfuse data:
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: verifying ...
-avrdude: 1 bytes of hfuse verified
-
-avrdude done.  Thank you.
-
-Finished building: avrdudedummy
- 
-21:10:37 **** Incremental Build of configuration Debug for project 21-1-2020_Interrupt ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:4:
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../main.c
- 
-Building target: 21-1-2020_Interrupt.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,21-1-2020_Interrupt.map -mmcu=atmega32 -o "21-1-2020_Interrupt.elf"  ./DIO_program.o ./EXTI_program.o ./main.o   
-Finished building target: 21-1-2020_Interrupt.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 21-1-2020_Interrupt.elf  >"21-1-2020_Interrupt.lss"
-Finished building: 21-1-2020_Interrupt.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 21-1-2020_Interrupt.elf  "21-1-2020_Interrupt.hex"
-Finished building: 21-1-2020_Interrupt.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 21-1-2020_Interrupt.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    5072 bytes (15.5% Full)
-(.text + .data + .bootloader)
-
-Data:          8 bytes (0.4% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:21-1-2020_Interrupt.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd9:m
-
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: AVR device initialized and ready to accept instructions
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: Device signature = 0x1e9502
-avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
-         To disable this feature, specify the -D option.
-avrdude: erasing chip
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: reading input file "21-1-2020_Interrupt.hex"
-avrdude: input file 21-1-2020_Interrupt.hex auto detected as Intel Hex
-avrdude: writing flash (5072 bytes):
-
-Writing | ################################################## | 100% 4.63s
-
-avrdude: 5072 bytes of flash written
-avrdude: verifying flash memory against 21-1-2020_Interrupt.hex:
-avrdude: load data flash data from input file 21-1-2020_Interrupt.hex:
-avrdude: input file 21-1-2020_Interrupt.hex auto detected as Intel Hex
-avrdude: input file 21-1-2020_Interrupt.hex contains 5072 bytes
-avrdude: reading on-chip flash data:
-
-Reading | ################################################## | 100% 2.56s
-
-avrdude: verifying ...
-avrdude: 5072 bytes of flash verified
-avrdude: reading input file "0xff"
-avrdude: writing lfuse (1 bytes):
-
-Writing | ################################################## | 100% 0.00s
-
-avrdude: 1 bytes of lfuse written
-avrdude: verifying lfuse memory against 0xff:
-avrdude: load data lfuse data from input file 0xff:
-avrdude: input file 0xff contains 1 bytes
-avrdude: reading on-chip lfuse data:
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: verifying ...
-avrdude: 1 bytes of lfuse verified
-avrdude: reading input file "0xd9"
-avrdude: writing hfuse (1 bytes):
-
-Writing | ################################################## | 100% 0.00s
-
-avrdude: 1 bytes of hfuse written
-avrdude: verifying hfuse memory against 0xd9:
-avrdude: load data hfuse data from input file 0xd9:
-avrdude: input file 0xd9 contains 1 bytes
-avrdude: reading on-chip hfuse data:
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: verifying ...
-avrdude: 1 bytes of hfuse verified
-
-avrdude done.  Thank you.
-
-Finished building: avrdudedummy
- 
-22:34:11 **** Build of configuration Debug for project 18-2-2020_DAC ****
-make all 
-Building file: ../DIO_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
-Finished building: ../DIO_program.c
- 
-Building file: ../PORT_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"PORT_program.d" -MT"PORT_program.o" -c -o "PORT_program.o" "../PORT_program.c"
-Finished building: ../PORT_program.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c:10: warning: return type of 'main' is not 'int'
-../main.c: In function 'main':
-../main.c:12: error: 'u8' undeclared (first use in this function)
-../main.c:12: error: (Each undeclared identifier is reported only once
-../main.c:12: error: for each function it appears in.)
-../main.c:12: error: expected expression before ')' token
-make: *** [main.o] Error 1
-22:34:34 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c:10: warning: return type of 'main' is not 'int'
-Finished building: ../main.c
- 
-Building target: 18-2-2020_DAC.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,18-2-2020_DAC.map -mmcu=atmega16 -o "18-2-2020_DAC.elf"  ./DIO_program.o ./PORT_program.o ./main.o   
-Finished building target: 18-2-2020_DAC.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 18-2-2020_DAC.elf  >"18-2-2020_DAC.lss"
-Finished building: 18-2-2020_DAC.lss
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 18-2-2020_DAC.elf
-AVR Memory Usage
-----------------
-Device: atmega16
-
-Program:    1356 bytes (8.3% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-22:36:42 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c:10: warning: return type of 'main' is not 'int'
-Finished building: ../main.c
- 
-Building target: 18-2-2020_DAC.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,18-2-2020_DAC.map -mmcu=atmega16 -o "18-2-2020_DAC.elf"  ./DIO_program.o ./PORT_program.o ./main.o   
-Finished building target: 18-2-2020_DAC.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 18-2-2020_DAC.elf  >"18-2-2020_DAC.lss"
-Finished building: 18-2-2020_DAC.lss
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 18-2-2020_DAC.elf
-AVR Memory Usage
-----------------
-Device: atmega16
-
-Program:    1414 bytes (8.6% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-22:37:12 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
-make all 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 18-2-2020_DAC.elf
-AVR Memory Usage
-----------------
-Device: atmega16
-
-Program:    1414 bytes (8.6% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-22:37:37 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
-make all 
-Building target: 18-2-2020_DAC.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,18-2-2020_DAC.map -mmcu=atmega16 -o "18-2-2020_DAC.elf"  ./DIO_program.o ./PORT_program.o ./main.o   
-Finished building target: 18-2-2020_DAC.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 18-2-2020_DAC.elf  >"18-2-2020_DAC.lss"
-Finished building: 18-2-2020_DAC.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 18-2-2020_DAC.elf  "18-2-2020_DAC.hex"
-Finished building: 18-2-2020_DAC.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 18-2-2020_DAC.elf
-AVR Memory Usage
-----------------
-Device: atmega16
-
-Program:    1414 bytes (8.6% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm16 -Uflash:w:18-2-2020_DAC.hex:a
-
-avrdude: no programmer has been specified on the command line or the config file
-         Specify a programmer using the -c option and try again
-
-make: *** [avrdudedummy] Error 1
-22:38:24 **** Clean-only build of configuration Debug for project 18-2-2020_DAC ****
+15:17:24 **** Clean-only build of configuration Debug for project USART_Driver ****
 make clean 
-rm -rf  18-2-2020_DAC.hex  ./DIO_program.o ./PORT_program.o ./main.o  avrdudedummy  sizedummy  18-2-2020_DAC.lss  ./DIO_program.d ./PORT_program.d ./main.d  18-2-2020_DAC.elf
+rm -rf  ./USART_program.o ./main.o  sizedummy  USART_Driver.lss  ./USART_program.d ./main.d  USART_Driver.elf
  
-22:38:24 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
+15:17:28 **** Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../DIO_program.c
+Building file: ../USART_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
-Finished building: ../DIO_program.c
- 
-Building file: ../PORT_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_program.d" -MT"PORT_program.o" -c -o "PORT_program.o" "../PORT_program.c"
-Finished building: ../PORT_program.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c:10: warning: return type of 'main' is not 'int'
-Finished building: ../main.c
- 
-Building target: 18-2-2020_DAC.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,18-2-2020_DAC.map -mmcu=atmega32 -o "18-2-2020_DAC.elf"  ./DIO_program.o ./PORT_program.o ./main.o   
-Finished building target: 18-2-2020_DAC.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 18-2-2020_DAC.elf  >"18-2-2020_DAC.lss"
-Finished building: 18-2-2020_DAC.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 18-2-2020_DAC.elf  "18-2-2020_DAC.hex"
-Finished building: 18-2-2020_DAC.hex
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 18-2-2020_DAC.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    1414 bytes (4.3% Full)
-(.text + .data + .bootloader)
-
-Data:          0 bytes (0.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:18-2-2020_DAC.hex:a
-
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: AVR device initialized and ready to accept instructions
-
-Reading | ################################################## | 100% 0.00s
-
-avrdude: Device signature = 0x1e9502
-avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
-         To disable this feature, specify the -D option.
-avrdude: erasing chip
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: reading input file "18-2-2020_DAC.hex"
-avrdude: input file 18-2-2020_DAC.hex auto detected as Intel Hex
-avrdude: writing flash (1414 bytes):
-
-Writing | ################################################## | 100% 1.40s
-
-avrdude: 1414 bytes of flash written
-avrdude: verifying flash memory against 18-2-2020_DAC.hex:
-avrdude: load data flash data from input file 18-2-2020_DAC.hex:
-avrdude: input file 18-2-2020_DAC.hex auto detected as Intel Hex
-avrdude: input file 18-2-2020_DAC.hex contains 1414 bytes
-avrdude: reading on-chip flash data:
-
-Reading | ################################################## | 100% 0.72s
-
-avrdude: verifying ...
-avrdude: 1414 bytes of flash verified
-
-avrdude done.  Thank you.
-
-Finished building: avrdudedummy
- 
-22:00:57 **** Build of configuration Debug for project 26-2-2020_ADC_potentiometer_LEDs ****
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_voidInit':
+../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
+../USART_program.c:42: error: (Each undeclared identifier is reported only once
+../USART_program.c:42: error: for each function it appears in.)
+../USART_program.c: In function 'UART_voidTransmitDataSynch':
+../USART_program.c:53: error: 'Local_u32TimeOut' undeclared (first use in this function)
+../USART_program.c:54: error: expected ')' before '{' token
+../USART_program.c:57: error: expected expression before '}' token
+../USART_program.c:47: warning: unused variable 'Local_u8Error'
+../USART_program.c:46: warning: unused variable 'Local_u32Timeout'
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:77: warning: assignment makes integer from pointer without a cast
+../USART_program.c:90: warning: assignment makes pointer from integer without a cast
+make: *** [USART_program.o] Error 1
+15:18:00 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../ADC_program.c
+Building file: ../USART_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
-Finished building: ../ADC_program.c
- 
-Building file: ../DIO_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
-Finished building: ../DIO_program.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: 26-2-2020_ADC_potentiometer_LEDs.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,26-2-2020_ADC_potentiometer_LEDs.map -mmcu=atmega32 -o "26-2-2020_ADC_potentiometer_LEDs.elf"  ./ADC_program.o ./DIO_program.o ./main.o   
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o:(.init9+0x0): undefined reference to `main'
-make: *** [26-2-2020_ADC_potentiometer_LEDs.elf] Error 1
-13:50:44 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_voidInit':
+../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
+../USART_program.c:42: error: (Each undeclared identifier is reported only once
+../USART_program.c:42: error: for each function it appears in.)
+../USART_program.c: In function 'UART_voidTransmitDataSynch':
+../USART_program.c:54: error: expected ')' before '{' token
+../USART_program.c:59: error: expected expression before '}' token
+../USART_program.c:47: warning: unused variable 'Local_u8Error'
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:79: warning: assignment makes integer from pointer without a cast
+../USART_program.c:92: warning: assignment makes pointer from integer without a cast
+make: *** [USART_program.o] Error 1
+15:18:13 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    6654 bytes (20.3% Full)
-(.text + .data + .bootloader)
-
-Data:         40 bytes (2.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:16-1-2020_1_LCD_move_words_signwave.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0x99:m
-avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
-make: *** [avrdudedummy] Error 1
-13:50:46 **** Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+Building file: ../USART_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_voidInit':
+../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
+../USART_program.c:42: error: (Each undeclared identifier is reported only once
+../USART_program.c:42: error: for each function it appears in.)
+../USART_program.c: In function 'UART_voidTransmitDataSynch':
+../USART_program.c:47: warning: unused variable 'Local_u8Error'
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:79: warning: assignment makes integer from pointer without a cast
+../USART_program.c:92: warning: assignment makes pointer from integer without a cast
+make: *** [USART_program.o] Error 1
+15:19:37 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../DIO_program.c
+Building file: ../USART_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
-Finished building: ../DIO_program.c
- 
-Building file: ../EXTI_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"EXTI_program.d" -MT"EXTI_program.o" -c -o "EXTI_program.o" "../EXTI_program.c"
-Finished building: ../EXTI_program.c
- 
-Building file: ../LCD_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"LCD_program.d" -MT"LCD_program.o" -c -o "LCD_program.o" "../LCD_program.c"
-In file included from ../LCD_program.c:14:
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../LCD_program.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:4:
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../main.c: In function 'main':
-../main.c:28: warning: implicit declaration of function 'portInitialize'
-../main.c:32: error: 'B01110' undeclared (first use in this function)
-../main.c:32: error: (Each undeclared identifier is reported only once
-../main.c:32: error: for each function it appears in.)
-../main.c:33: warning: left-hand operand of comma expression has no effect
-../main.c:34: warning: left-hand operand of comma expression has no effect
-../main.c:35: error: 'B00100' undeclared (first use in this function)
-../main.c:35: warning: left-hand operand of comma expression has no effect
-../main.c:36: warning: left-hand operand of comma expression has no effect
-../main.c:37: error: 'B10101' undeclared (first use in this function)
-../main.c:37: warning: left-hand operand of comma expression has no effect
-../main.c:38: error: 'B01010' undeclared (first use in this function)
-../main.c:38: warning: left-hand operand of comma expression has no effect
-../main.c:39: error: 'B10001' undeclared (first use in this function)
-../main.c:41: warning: left-hand operand of comma expression has no effect
-../main.c:41: error: expected ';' before 'B01110'
-make: *** [main.o] Error 1
-13:50:47 **** Build of configuration Debug for project 9-3-2020_ADC_Driver ****
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_voidInit':
+../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
+../USART_program.c:42: error: (Each undeclared identifier is reported only once
+../USART_program.c:42: error: for each function it appears in.)
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:89: warning: assignment makes integer from pointer without a cast
+../USART_program.c:102: warning: assignment makes pointer from integer without a cast
+make: *** [USART_program.o] Error 1
+15:21:43 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../ADC_program.c
+Building file: ../USART_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
-In file included from ../ADC_program.c:4:
-../ADC_interface.h:7: error: expected ')' before 'channel'
-make: *** [ADC_program.o] Error 1
-13:52:07 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
-make all 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
-AVR Memory Usage
-----------------
-Device: atmega32
-
-Program:    6654 bytes (20.3% Full)
-(.text + .data + .bootloader)
-
-Data:         40 bytes (2.0% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
- 
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:16-1-2020_1_LCD_move_words_signwave.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0x99:m
-avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
-make: *** [avrdudedummy] Error 1
-13:52:07 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:4:
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../main.c: In function 'main':
-../main.c:28: warning: implicit declaration of function 'portInitialize'
-../main.c:32: error: 'B01110' undeclared (first use in this function)
-../main.c:32: error: (Each undeclared identifier is reported only once
-../main.c:32: error: for each function it appears in.)
-../main.c:33: warning: left-hand operand of comma expression has no effect
-../main.c:34: warning: left-hand operand of comma expression has no effect
-../main.c:35: error: 'B00100' undeclared (first use in this function)
-../main.c:35: warning: left-hand operand of comma expression has no effect
-../main.c:36: warning: left-hand operand of comma expression has no effect
-../main.c:37: error: 'B10101' undeclared (first use in this function)
-../main.c:37: warning: left-hand operand of comma expression has no effect
-../main.c:38: error: 'B01010' undeclared (first use in this function)
-../main.c:38: warning: left-hand operand of comma expression has no effect
-../main.c:39: error: 'B10001' undeclared (first use in this function)
-../main.c:41: warning: left-hand operand of comma expression has no effect
-../main.c:41: error: expected ';' before 'B01110'
-make: *** [main.o] Error 1
-13:52:08 **** Incremental Build of configuration Debug for project 9-3-2020_ADC_Driver ****
-make all 
-Building file: ../ADC_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
-Finished building: ../ADC_program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:89: warning: assignment makes integer from pointer without a cast
+../USART_program.c:102: warning: assignment makes pointer from integer without a cast
+Finished building: ../USART_program.c
  
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 Finished building: ../main.c
  
-Building target: 9-3-2020_ADC_Driver.elf
+Building target: USART_Driver.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,9-3-2020_ADC_Driver.map -mmcu=atmega16 -o "9-3-2020_ADC_Driver.elf"  ./ADC_program.o ./main.o   
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
-make: *** [9-3-2020_ADC_Driver.elf] Error 1
-13:53:43 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
-make all 
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+Finished building target: USART_Driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
+Finished building: USART_Driver.lss
+ 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
+avr-size --format=avr --mcu=atmega16 USART_Driver.elf
 AVR Memory Usage
 ----------------
-Device: atmega32
+Device: atmega16
 
-Program:    6654 bytes (20.3% Full)
+Program:     668 bytes (4.1% Full)
 (.text + .data + .bootloader)
 
-Data:         40 bytes (2.0% Full)
+Data:         14 bytes (1.4% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-Invoking: AVRDude
-D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -u -Uflash:w:16-1-2020_1_LCD_move_words_signwave.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0x99:m
-avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
-make: *** [avrdudedummy] Error 1
-13:53:43 **** Incremental Build of configuration Debug for project 21-1-2020_LCD_Character_Generation ****
+16:45:23 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../main.c
+Building file: ../USART_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=800000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:4:
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../main.c: In function 'main':
-../main.c:28: warning: implicit declaration of function 'portInitialize'
-../main.c:32: error: 'B01110' undeclared (first use in this function)
-../main.c:32: error: (Each undeclared identifier is reported only once
-../main.c:32: error: for each function it appears in.)
-../main.c:33: warning: left-hand operand of comma expression has no effect
-../main.c:34: warning: left-hand operand of comma expression has no effect
-../main.c:35: error: 'B00100' undeclared (first use in this function)
-../main.c:35: warning: left-hand operand of comma expression has no effect
-../main.c:36: warning: left-hand operand of comma expression has no effect
-../main.c:37: error: 'B10101' undeclared (first use in this function)
-../main.c:37: warning: left-hand operand of comma expression has no effect
-../main.c:38: error: 'B01010' undeclared (first use in this function)
-../main.c:38: warning: left-hand operand of comma expression has no effect
-../main.c:39: error: 'B10001' undeclared (first use in this function)
-../main.c:41: warning: left-hand operand of comma expression has no effect
-../main.c:41: error: expected ';' before 'B01110'
-make: *** [main.o] Error 1
-13:53:44 **** Incremental Build of configuration Debug for project 9-3-2020_ADC_Driver ****
-make all 
-Building file: ../ADC_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ADC_program.d" -MT"ADC_program.o" -c -o "ADC_program.o" "../ADC_program.c"
-Finished building: ../ADC_program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:104: warning: assignment makes pointer from integer without a cast
+Finished building: ../USART_program.c
  
-Building target: 9-3-2020_ADC_Driver.elf
+Building target: USART_Driver.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,9-3-2020_ADC_Driver.map -mmcu=atmega16 -o "9-3-2020_ADC_Driver.elf"  ./ADC_program.o ./main.o   
-d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
-make: *** [9-3-2020_ADC_Driver.elf] Error 1
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+Finished building target: USART_Driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
+Finished building: USART_Driver.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     670 bytes (4.1% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (1.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:46:24 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Building file: ../USART_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+../USART_program.c: In function 'UART_u8RecieveSynch':
+../USART_program.c:105: warning: assignment discards qualifiers from pointer target type
+Finished building: ../USART_program.c
+ 
+Building target: USART_Driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+Finished building target: USART_Driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
+Finished building: USART_Driver.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     664 bytes (4.1% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (1.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:46:55 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Building file: ../USART_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+Finished building: ../USART_program.c
+ 
+Building target: USART_Driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+Finished building target: USART_Driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
+Finished building: USART_Driver.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     668 bytes (4.1% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (1.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+16:48:46 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Building file: ../USART_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+Finished building: ../USART_program.c
+ 
+Building target: USART_Driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+Finished building target: USART_Driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
+Finished building: USART_Driver.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     724 bytes (4.4% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (1.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

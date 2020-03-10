@@ -1,4 +1,4 @@
-13:53:43 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
+21:41:56 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_signwave ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_signwave.elf
@@ -20,5 +20,5 @@ D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdud
 avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
 make: *** [avrdudedummy] Error 1
 
-13:53:43 Build Finished (took 269ms)
+21:41:56 Build Finished (took 270ms)
 
