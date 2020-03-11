@@ -14,7 +14,6 @@
 
 void recievefunc(u8 RecievedByte)
 {
-	//CLCD_voidWriteCmd(0b00000001);//clear screen
 	CLCD_voidWriteData(RecievedByte);
 }
 

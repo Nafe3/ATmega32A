@@ -4,8 +4,6 @@
  *  Created on: Mar 9, 2020
  *      Author: Mohamed Nafea
  */
-#include"STD_TYPES.h"
-
 #include "DIO_interface.h"
 #include "USART_interface.h"
 #include "LCD_interface.h"
@@ -14,7 +12,6 @@
 
 void recievefunc(u8 RecievedByte)
 {
-	//CLCD_voidWriteCmd(0b00000001);//clear screen
 	CLCD_voidWriteData(RecievedByte);
 }
 

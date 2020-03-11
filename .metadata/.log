@@ -5502,3 +5502,6 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
 	... 9 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-03-11 15:27:43.569
+!MESSAGE Indexed 'USART_Driver' (4 sources, 14 headers) in 0.08 sec: 143 declarations; 437 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)

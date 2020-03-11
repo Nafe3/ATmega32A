@@ -1,34 +1,73 @@
-16:48:46 **** Incremental Build of configuration Debug for project USART_Driver ****
+15:38:34 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../USART_program.c
+Building file: ../main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-Finished building: ../USART_program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
  
 Building target: USART_Driver.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega32 -o "USART_Driver.elf"  ./DIO_program.o ./LCD_program.o ./USART_program.o ./main.o   
 Finished building target: USART_Driver.elf
  
 Invoking: AVR Create Extended Listing
 avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
 Finished building: USART_Driver.lss
  
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART_Driver.elf  "USART_Driver.hex"
+Finished building: USART_Driver.hex
+ 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:     724 bytes (4.4% Full)
+Program:    6770 bytes (20.7% Full)
 (.text + .data + .bootloader)
 
-Data:         14 bytes (1.4% Full)
+Data:         22 bytes (1.1% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
 
-16:48:47 Build Finished (took 574ms)
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9502
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "USART_Driver.hex"
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: writing flash (6770 bytes):
+
+Writing | ################################################## | 100% 6.19s
+
+avrdude: 6770 bytes of flash written
+avrdude: verifying flash memory against USART_Driver.hex:
+avrdude: load data flash data from input file USART_Driver.hex:
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: input file USART_Driver.hex contains 6770 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.46s
+
+avrdude: verifying ...
+avrdude: 6770 bytes of flash verified
+
+avrdude done.  Thank you.
+
+Finished building: avrdudedummy
+ 
+
+15:38:45 Build Finished (took 10s.738ms)
 

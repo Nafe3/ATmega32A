@@ -1,235 +1,143 @@
-15:17:24 **** Clean-only build of configuration Debug for project USART_Driver ****
-make clean 
-rm -rf  ./USART_program.o ./main.o  sizedummy  USART_Driver.lss  ./USART_program.d ./main.d  USART_Driver.elf
- 
-15:17:28 **** Build of configuration Debug for project USART_Driver ****
+15:37:20 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_voidInit':
-../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
-../USART_program.c:42: error: (Each undeclared identifier is reported only once
-../USART_program.c:42: error: for each function it appears in.)
-../USART_program.c: In function 'UART_voidTransmitDataSynch':
-../USART_program.c:53: error: 'Local_u32TimeOut' undeclared (first use in this function)
-../USART_program.c:54: error: expected ')' before '{' token
-../USART_program.c:57: error: expected expression before '}' token
-../USART_program.c:47: warning: unused variable 'Local_u8Error'
-../USART_program.c:46: warning: unused variable 'Local_u32Timeout'
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:77: warning: assignment makes integer from pointer without a cast
-../USART_program.c:90: warning: assignment makes pointer from integer without a cast
-make: *** [USART_program.o] Error 1
-15:18:00 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_voidInit':
-../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
-../USART_program.c:42: error: (Each undeclared identifier is reported only once
-../USART_program.c:42: error: for each function it appears in.)
-../USART_program.c: In function 'UART_voidTransmitDataSynch':
-../USART_program.c:54: error: expected ')' before '{' token
-../USART_program.c:59: error: expected expression before '}' token
-../USART_program.c:47: warning: unused variable 'Local_u8Error'
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:79: warning: assignment makes integer from pointer without a cast
-../USART_program.c:92: warning: assignment makes pointer from integer without a cast
-make: *** [USART_program.o] Error 1
-15:18:13 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_voidInit':
-../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
-../USART_program.c:42: error: (Each undeclared identifier is reported only once
-../USART_program.c:42: error: for each function it appears in.)
-../USART_program.c: In function 'UART_voidTransmitDataSynch':
-../USART_program.c:47: warning: unused variable 'Local_u8Error'
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:79: warning: assignment makes integer from pointer without a cast
-../USART_program.c:92: warning: assignment makes pointer from integer without a cast
-make: *** [USART_program.o] Error 1
-15:19:37 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_voidInit':
-../USART_program.c:42: error: 'UART_BAUDRATE_9600' undeclared (first use in this function)
-../USART_program.c:42: error: (Each undeclared identifier is reported only once
-../USART_program.c:42: error: for each function it appears in.)
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:89: warning: assignment makes integer from pointer without a cast
-../USART_program.c:102: warning: assignment makes pointer from integer without a cast
-make: *** [USART_program.o] Error 1
-15:21:43 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:89: warning: assignment makes integer from pointer without a cast
-../USART_program.c:102: warning: assignment makes pointer from integer without a cast
-Finished building: ../USART_program.c
- 
 Building file: ../main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:18:21: warning: character constant too long for its type
+../main.c: In function 'recievefunc':
+../main.c:18: warning: large integer implicitly truncated to unsigned type
 Finished building: ../main.c
  
 Building target: USART_Driver.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega32 -o "USART_Driver.elf"  ./DIO_program.o ./LCD_program.o ./USART_program.o ./main.o   
 Finished building target: USART_Driver.elf
  
 Invoking: AVR Create Extended Listing
 avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
 Finished building: USART_Driver.lss
  
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART_Driver.elf  "USART_Driver.hex"
+Finished building: USART_Driver.hex
+ 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:     668 bytes (4.1% Full)
+Program:    6770 bytes (20.7% Full)
 (.text + .data + .bootloader)
 
-Data:         14 bytes (1.4% Full)
+Data:         22 bytes (1.1% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-16:45:23 **** Incremental Build of configuration Debug for project USART_Driver ****
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9502
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "USART_Driver.hex"
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: writing flash (6770 bytes):
+
+Writing | ################################################## | 100% 6.17s
+
+avrdude: 6770 bytes of flash written
+avrdude: verifying flash memory against USART_Driver.hex:
+avrdude: load data flash data from input file USART_Driver.hex:
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: input file USART_Driver.hex contains 6770 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.46s
+
+avrdude: verifying ...
+avrdude: 6770 bytes of flash verified
+
+avrdude done.  Thank you.
+
+Finished building: avrdudedummy
+ 
+15:38:34 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
-Building file: ../USART_program.c
+Building file: ../main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:104: warning: assignment makes pointer from integer without a cast
-Finished building: ../USART_program.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
  
 Building target: USART_Driver.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
+avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega32 -o "USART_Driver.elf"  ./DIO_program.o ./LCD_program.o ./USART_program.o ./main.o   
 Finished building target: USART_Driver.elf
  
 Invoking: AVR Create Extended Listing
 avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
 Finished building: USART_Driver.lss
  
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART_Driver.elf  "USART_Driver.hex"
+Finished building: USART_Driver.hex
+ 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 USART_Driver.elf
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:     670 bytes (4.1% Full)
+Program:    6770 bytes (20.7% Full)
 (.text + .data + .bootloader)
 
-Data:         14 bytes (1.4% Full)
+Data:         22 bytes (1.1% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
-16:46:24 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-../USART_program.c: In function 'UART_u8RecieveSynch':
-../USART_program.c:105: warning: assignment discards qualifiers from pointer target type
-Finished building: ../USART_program.c
- 
-Building target: USART_Driver.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
-Finished building target: USART_Driver.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
-Finished building: USART_Driver.lss
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 USART_Driver.elf
-AVR Memory Usage
-----------------
-Device: atmega16
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
 
-Program:     664 bytes (4.1% Full)
-(.text + .data + .bootloader)
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
 
-Data:         14 bytes (1.4% Full)
-(.data + .bss + .noinit)
+Reading | ################################################## | 100% 0.00s
 
+avrdude: Device signature = 0x1e9502
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "USART_Driver.hex"
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: writing flash (6770 bytes):
 
-Finished building: sizedummy
- 
-16:46:55 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-Finished building: ../USART_program.c
- 
-Building target: USART_Driver.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
-Finished building target: USART_Driver.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
-Finished building: USART_Driver.lss
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 USART_Driver.elf
-AVR Memory Usage
-----------------
-Device: atmega16
+Writing | ################################################## | 100% 6.19s
 
-Program:     668 bytes (4.1% Full)
-(.text + .data + .bootloader)
+avrdude: 6770 bytes of flash written
+avrdude: verifying flash memory against USART_Driver.hex:
+avrdude: load data flash data from input file USART_Driver.hex:
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: input file USART_Driver.hex contains 6770 bytes
+avrdude: reading on-chip flash data:
 
-Data:         14 bytes (1.4% Full)
-(.data + .bss + .noinit)
+Reading | ################################################## | 100% 3.46s
 
+avrdude: verifying ...
+avrdude: 6770 bytes of flash verified
 
-Finished building: sizedummy
- 
-16:48:46 **** Incremental Build of configuration Debug for project USART_Driver ****
-make all 
-Building file: ../USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
-Finished building: ../USART_program.c
- 
-Building target: USART_Driver.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega16 -o "USART_Driver.elf"  ./USART_program.o ./main.o   
-Finished building target: USART_Driver.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
-Finished building: USART_Driver.lss
- 
-Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 USART_Driver.elf
-AVR Memory Usage
-----------------
-Device: atmega16
+avrdude done.  Thank you.
 
-Program:     724 bytes (4.4% Full)
-(.text + .data + .bootloader)
-
-Data:         14 bytes (1.4% Full)
-(.data + .bss + .noinit)
-
-
-Finished building: sizedummy
+Finished building: avrdudedummy
  
