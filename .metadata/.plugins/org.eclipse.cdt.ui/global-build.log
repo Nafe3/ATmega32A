@@ -1,33 +1,40 @@
-15:37:20 **** Incremental Build of configuration Debug for project USART_Driver ****
+17:11:09 **** Clean-only build of configuration Debug for project UART_Manager ****
+make clean 
+rm -rf  ./DIO_program.o ./UART_Manager_program.o ./USART_program.o ./main.o  sizedummy  UART_Manager.lss  ./DIO_program.d ./UART_Manager_program.d ./USART_program.d ./main.d  UART_Manager.elf
+ 
+17:11:11 **** Build of configuration Debug for project UART_Manager ****
 make all 
+Building file: ../DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
+Finished building: ../DIO_program.c
+ 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+Finished building: ../UART_Manager_program.c
+ 
+Building file: ../USART_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"USART_program.d" -MT"USART_program.o" -c -o "USART_program.o" "../USART_program.c"
+Finished building: ../USART_program.c
+ 
 Building file: ../main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c:18:21: warning: character constant too long for its type
-../main.c: In function 'recievefunc':
-../main.c:18: warning: large integer implicitly truncated to unsigned type
-Finished building: ../main.c
- 
-Building target: USART_Driver.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega32 -o "USART_Driver.elf"  ./DIO_program.o ./LCD_program.o ./USART_program.o ./main.o   
-Finished building target: USART_Driver.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
-Finished building: USART_Driver.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART_Driver.elf  "USART_Driver.hex"
-Finished building: USART_Driver.hex
- 
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:15: warning: parameter names (without types) in function declaration
+../main.c:18: error: conflicting types for 'Arr'
+../main.c:13: error: previous definition of 'Arr' was here
+make: *** [main.o] Error 1
+17:11:12 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 USART_Driver.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    6770 bytes (20.7% Full)
+Program:    6834 bytes (20.9% Full)
 (.text + .data + .bootloader)
 
 Data:         22 bytes (1.1% Full)
@@ -38,66 +45,28 @@ Finished building: sizedummy
  
 Invoking: AVRDude
 D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
 
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: AVR device initialized and ready to accept instructions
+**** Build of configuration Debug for project SPI_Driver ****
 
-Reading | ################################################## | 100% 0.00s
-
-avrdude: Device signature = 0x1e9502
-avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
-         To disable this feature, specify the -D option.
-avrdude: erasing chip
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: reading input file "USART_Driver.hex"
-avrdude: input file USART_Driver.hex auto detected as Intel Hex
-avrdude: writing flash (6770 bytes):
-
-Writing | ################################################## | 100% 6.17s
-
-avrdude: 6770 bytes of flash written
-avrdude: verifying flash memory against USART_Driver.hex:
-avrdude: load data flash data from input file USART_Driver.hex:
-avrdude: input file USART_Driver.hex auto detected as Intel Hex
-avrdude: input file USART_Driver.hex contains 6770 bytes
-avrdude: reading on-chip flash data:
-
-Reading | ################################################## | 100% 3.46s
-
-avrdude: verifying ...
-avrdude: 6770 bytes of flash verified
-
-avrdude done.  Thank you.
-
-Finished building: avrdudedummy
- 
-15:38:34 **** Incremental Build of configuration Debug for project USART_Driver ****
+Nothing to build for project SPI_Driver
+17:45:48 **** Incremental Build of configuration Debug for project UART_Manager ****
 make all 
-Building file: ../main.c
+Building file: ../UART_Manager_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: USART_Driver.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,USART_Driver.map -mmcu=atmega32 -o "USART_Driver.elf"  ./DIO_program.o ./LCD_program.o ./USART_program.o ./main.o   
-Finished building target: USART_Driver.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S USART_Driver.elf  >"USART_Driver.lss"
-Finished building: USART_Driver.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART_Driver.elf  "USART_Driver.hex"
-Finished building: USART_Driver.hex
- 
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'URTM_QUEUE'
+make: *** [UART_Manager_program.o] Error 1
+17:45:48 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 USART_Driver.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    6770 bytes (20.7% Full)
+Program:    6834 bytes (20.9% Full)
 (.text + .data + .bootloader)
 
 Data:         22 bytes (1.1% Full)
@@ -108,36 +77,363 @@ Finished building: sizedummy
  
 Invoking: AVRDude
 D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
 
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: AVR device initialized and ready to accept instructions
+**** Build of configuration Debug for project SPI_Driver ****
 
-Reading | ################################################## | 100% 0.00s
-
-avrdude: Device signature = 0x1e9502
-avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
-         To disable this feature, specify the -D option.
-avrdude: erasing chip
-avrdude: warning: cannot set sck period. please check for usbasp firmware update.
-avrdude: reading input file "USART_Driver.hex"
-avrdude: input file USART_Driver.hex auto detected as Intel Hex
-avrdude: writing flash (6770 bytes):
-
-Writing | ################################################## | 100% 6.19s
-
-avrdude: 6770 bytes of flash written
-avrdude: verifying flash memory against USART_Driver.hex:
-avrdude: load data flash data from input file USART_Driver.hex:
-avrdude: input file USART_Driver.hex auto detected as Intel Hex
-avrdude: input file USART_Driver.hex contains 6770 bytes
-avrdude: reading on-chip flash data:
-
-Reading | ################################################## | 100% 3.46s
-
-avrdude: verifying ...
-avrdude: 6770 bytes of flash verified
-
-avrdude done.  Thank you.
-
-Finished building: avrdudedummy
+Nothing to build for project SPI_Driver
+17:46:08 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+Finished building: ../UART_Manager_program.c
  
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:11: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:16: warning: parameter names (without types) in function declaration
+../main.c:19: error: conflicting types for 'Arr'
+../main.c:14: error: previous definition of 'Arr' was here
+../main.c:23: error: redeclaration of 'Arr' with no linkage
+../main.c:19: error: previous declaration of 'Arr' was here
+../main.c:24: error: expected ',' or ';' before 'void'
+../main.c:28: error: 'func' undeclared (first use in this function)
+../main.c:28: error: (Each undeclared identifier is reported only once
+../main.c:28: error: for each function it appears in.)
+../main.c:29: warning: parameter names (without types) in function declaration
+../main.c:32: error: conflicting types for 'Arr'
+../main.c:23: error: previous definition of 'Arr' was here
+../main.c:37: warning: parameter names (without types) in function declaration
+../main.c:32: warning: unused variable 'Arr'
+../main.c:28: warning: unused variable 'Job3'
+../main.c:20: warning: unused variable 'Job2'
+../main.c:15: warning: unused variable 'Job1'
+make: *** [main.o] Error 1
+17:46:09 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+17:59:03 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c: In function 'UARTM_performJobReq':
+../UART_Manager_program.c:23: error: 'Local_u8Status' undeclared (first use in this function)
+../UART_Manager_program.c:23: error: (Each undeclared identifier is reported only once
+../UART_Manager_program.c:23: error: for each function it appears in.)
+../UART_Manager_program.c:46: warning: control reaches end of non-void function
+make: *** [UART_Manager_program.o] Error 1
+17:59:03 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+17:59:07 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c: In function 'UARTM_performJobReq':
+../UART_Manager_program.c:46: warning: control reaches end of non-void function
+Finished building: ../UART_Manager_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:11: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:16: warning: parameter names (without types) in function declaration
+../main.c:19: error: conflicting types for 'Arr'
+../main.c:14: error: previous definition of 'Arr' was here
+../main.c:23: error: redeclaration of 'Arr' with no linkage
+../main.c:19: error: previous declaration of 'Arr' was here
+../main.c:24: error: expected ',' or ';' before 'void'
+../main.c:28: error: 'func' undeclared (first use in this function)
+../main.c:28: error: (Each undeclared identifier is reported only once
+../main.c:28: error: for each function it appears in.)
+../main.c:29: warning: parameter names (without types) in function declaration
+../main.c:32: error: conflicting types for 'Arr'
+../main.c:23: error: previous definition of 'Arr' was here
+../main.c:37: warning: parameter names (without types) in function declaration
+../main.c:32: warning: unused variable 'Arr'
+../main.c:28: warning: unused variable 'Job3'
+../main.c:20: warning: unused variable 'Job2'
+../main.c:15: warning: unused variable 'Job1'
+make: *** [main.o] Error 1
+17:59:07 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+18:15:24 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c: In function 'UARTM_performJobReq':
+../UART_Manager_program.c:40: warning: implicit declaration of function 'voidExecute'
+../UART_Manager_program.c:48: warning: control reaches end of non-void function
+../UART_Manager_program.c: At top level:
+../UART_Manager_program.c:50: warning: conflicting types for 'voidExecute'
+../UART_Manager_program.c:50: error: static declaration of 'voidExecute' follows non-static declaration
+../UART_Manager_program.c:40: error: previous implicit declaration of 'voidExecute' was here
+../UART_Manager_program.c: In function 'voidExecute':
+../UART_Manager_program.c:70: error: label at end of compound statement
+../UART_Manager_program.c:52: warning: unused variable 'Local_u8Counter'
+make: *** [UART_Manager_program.o] Error 1
+18:15:24 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+18:16:01 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c: In function 'UARTM_performJobReq':
+../UART_Manager_program.c:40: warning: implicit declaration of function 'voidExecute'
+../UART_Manager_program.c:48: warning: control reaches end of non-void function
+../UART_Manager_program.c: At top level:
+../UART_Manager_program.c:50: warning: conflicting types for 'voidExecute'
+../UART_Manager_program.c:50: error: static declaration of 'voidExecute' follows non-static declaration
+../UART_Manager_program.c:40: error: previous implicit declaration of 'voidExecute' was here
+../UART_Manager_program.c: In function 'voidExecute':
+../UART_Manager_program.c:52: warning: unused variable 'Local_u8Counter'
+make: *** [UART_Manager_program.o] Error 1
+18:16:01 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+18:34:57 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c: In function 'voidExecute':
+../UART_Manager_program.c:57: warning: implicit declaration of function 'voidStart'
+../UART_Manager_program.c: At top level:
+../UART_Manager_program.c:64: warning: conflicting types for 'voidStart'
+../UART_Manager_program.c:64: error: static declaration of 'voidStart' follows non-static declaration
+../UART_Manager_program.c:57: error: previous implicit declaration of 'voidStart' was here
+make: *** [UART_Manager_program.o] Error 1
+18:34:58 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+18:35:14 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+../UART_Manager_program.c: In function 'voidExecute':
+../UART_Manager_program.c:58: warning: implicit declaration of function 'voidStart'
+../UART_Manager_program.c: At top level:
+../UART_Manager_program.c:65: warning: conflicting types for 'voidStart'
+../UART_Manager_program.c:65: error: static declaration of 'voidStart' follows non-static declaration
+../UART_Manager_program.c:58: error: previous implicit declaration of 'voidStart' was here
+make: *** [UART_Manager_program.o] Error 1
+18:35:14 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1
+
+**** Build of configuration Debug for project SPI_Driver ****
+
+Nothing to build for project SPI_Driver
+18:35:21 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+Finished building: ../UART_Manager_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:11: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:16: warning: parameter names (without types) in function declaration
+../main.c:19: error: conflicting types for 'Arr'
+../main.c:14: error: previous definition of 'Arr' was here
+../main.c:23: error: redeclaration of 'Arr' with no linkage
+../main.c:19: error: previous declaration of 'Arr' was here
+../main.c:24: error: expected ',' or ';' before 'void'
+../main.c:28: error: 'func' undeclared (first use in this function)
+../main.c:28: error: (Each undeclared identifier is reported only once
+../main.c:28: error: for each function it appears in.)
+../main.c:29: warning: parameter names (without types) in function declaration
+../main.c:32: error: conflicting types for 'Arr'
+../main.c:23: error: previous definition of 'Arr' was here
+../main.c:37: warning: parameter names (without types) in function declaration
+../main.c:32: warning: unused variable 'Arr'
+../main.c:28: warning: unused variable 'Job3'
+../main.c:20: warning: unused variable 'Job2'
+../main.c:15: warning: unused variable 'Job1'
+make: *** [main.o] Error 1
+18:35:22 **** Incremental Build of configuration Debug for project USART_Driver ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART_Driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6834 bytes (20.9% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Error 1

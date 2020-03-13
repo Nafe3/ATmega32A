@@ -1,0 +1,13 @@
+/*
+ * UART_Manager_program.c
+ *
+ *  Created on: Mar 11, 2020
+ *      Author: moham
+ */
+#include"STD_TYPES.h"
+#include"UART_Manager_interface.h"
+
+void UARTM_performJobReq(UART_JobReq job)
+{
+
+}

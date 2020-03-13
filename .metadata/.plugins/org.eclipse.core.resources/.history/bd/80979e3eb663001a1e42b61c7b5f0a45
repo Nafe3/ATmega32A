@@ -1,0 +1,82 @@
+/*
+ * UART_Manager_program.c
+ *
+ *  Created on: Mar 11, 2020
+ *      Author: moham
+ */
+#include"STD_TYPES.h"
+#include"BIT_MATH.h"
+
+#include"USART_interface.h"
+
+#include"UART_Manager_interface.h"
+#include"UART_Manager_config.h"
+#include"USART_private.h"
+
+UART_JobReq URTM_QUEUE[UARTM_u8_MAX_QUEUE_SIZE]		;
+u8			URTM_QCurrent	=	0					;
+u8			URTM_QNext	 	=	0					;
+u8 			URTM_QAvailable	=UARTM_u8_MAX_QUEUE_SIZE;
+
+u8 UARTM_performJobReq(UART_JobReq Copy_JobInfo)
+{
+	ErrorStatus Local_u8Status=STD_TYPES_ERROR_OK;
+	/*Add the job to the queue*/
+	if(URTM_QAvailable > 0)
+	{
+		URTM_QAvailable--;
+		URTM_QUEUE[URTM_QNext]=Copy_JobInfo;
+
+		/*Increment the next*/
+		if( URTM_QNext == (UARTM_u8_MAX_QUEUE_SIZE-1))
+		{
+			URTM_QNext=0;
+		}
+		else
+		{
+			URTM_QNext++;
+		}
+
+		voidExecute();
+	}
+	else
+	{
+		Local_u8Status = STD_TYPES_ERROR_NOK;
+	}
+
+
+}
+
+static void voidExecute(void)
+{
+	u8 Local_u8Counter = 0;
+	/*Check if Queue is empty*/
+	if ( URTM_QAvailable == UARTM_u8_MAX_QUEUE_SIZE)
+	{
+		/*Do nothing*/
+	}
+
+	/*Queue includes jobs*/
+	else
+	{
+		/*Start Job*/
+		if(URTM_QAvailable == (UARTM_u8_MAX_QUEUE_SIZE-1))
+		{
+			switch(URTM_QUEUE[URTM_QCurrent].Jobtype)
+			{
+				case URTM_SEND_SYNC	:
+				break;
+				case URTM_SEND_ASYNCH:
+				break;
+				case URTM_REC_SYNC:
+				break;
+				case URTM_REC_ASYNC:
+				break;
+			}
+		}
+		else
+		{
+
+		}
+	}
+}

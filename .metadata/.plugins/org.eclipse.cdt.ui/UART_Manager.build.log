@@ -1,0 +1,33 @@
+18:35:21 **** Incremental Build of configuration Debug for project UART_Manager ****
+make all 
+Building file: ../UART_Manager_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"UART_Manager_program.d" -MT"UART_Manager_program.o" -c -o "UART_Manager_program.o" "../UART_Manager_program.c"
+Finished building: ../UART_Manager_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:11: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:16: warning: parameter names (without types) in function declaration
+../main.c:19: error: conflicting types for 'Arr'
+../main.c:14: error: previous definition of 'Arr' was here
+../main.c:23: error: redeclaration of 'Arr' with no linkage
+../main.c:19: error: previous declaration of 'Arr' was here
+../main.c:24: error: expected ',' or ';' before 'void'
+../main.c:28: error: 'func' undeclared (first use in this function)
+../main.c:28: error: (Each undeclared identifier is reported only once
+../main.c:28: error: for each function it appears in.)
+../main.c:29: warning: parameter names (without types) in function declaration
+../main.c:32: error: conflicting types for 'Arr'
+../main.c:23: error: previous definition of 'Arr' was here
+../main.c:37: warning: parameter names (without types) in function declaration
+../main.c:32: warning: unused variable 'Arr'
+../main.c:28: warning: unused variable 'Job3'
+../main.c:20: warning: unused variable 'Job2'
+../main.c:15: warning: unused variable 'Job1'
+make: *** [main.o] Error 1
+
+18:35:21 Build Finished (took 426ms)
+

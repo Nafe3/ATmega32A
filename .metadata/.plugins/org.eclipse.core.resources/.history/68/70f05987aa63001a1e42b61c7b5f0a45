@@ -1,0 +1,26 @@
+/*
+ * main.c
+ *
+ *  Created on: Mar 11, 2020
+ *      Author: moham
+ */
+
+#include"STD_TYPES.h"
+#include"USART_interface.h"
+#include"UART_Manager_interface.h"
+
+//1.write
+u8  Arr[]="Ahmed";
+UART_JobReq Job1={0,Arr,6,STD_NULL};
+UARTM(JOB1);
+
+//2.Read
+u8 Arr[10];
+UART_JobReq Job2={2,Arr,10,STD_NULL};
+
+//3. Write Asynch
+
+
+//4.Read Asynch
+
+

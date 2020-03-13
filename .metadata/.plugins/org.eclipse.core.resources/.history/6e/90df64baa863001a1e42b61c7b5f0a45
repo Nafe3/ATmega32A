@@ -1,0 +1,13 @@
+/*
+ * UART_Manager_interface.h
+ *
+ *  Created on: Mar 11, 2020
+ *      Author: moham
+ */
+
+#ifndef UART_MANAGER_INTERFACE_H_
+#define UART_MANAGER_INTERFACE_H_
+
+
+
+#endif /* UART_MANAGER_INTERFACE_H_ */
