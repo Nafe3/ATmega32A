@@ -15,4 +15,5 @@ typedef  long double             f96;
 #define  STD_TYPES_ERROR_OK     (ErrorStatus)1U
 #define  STD_TYPES_ERROR_NOK    (ErrorStatus)2U
 
-#define  STD_NULL 				((void(*)(void))0)
+//#define  STD_NULL 				((void(*)(void))0)
+#define  STD_NULL 				((void*)0)

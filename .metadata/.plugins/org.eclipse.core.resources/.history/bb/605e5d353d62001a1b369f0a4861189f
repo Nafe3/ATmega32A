@@ -1,4 +1,0 @@
-#include "USART_config.h"
-#include "USART_private.h"
-#include "USART_register.h"
-#include "USART_interface.h"

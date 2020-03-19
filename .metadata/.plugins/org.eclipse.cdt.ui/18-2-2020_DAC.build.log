@@ -1,19 +1,10 @@
-22:38:24 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
+09:34:47 **** Incremental Build of configuration Debug for project 18-2-2020_DAC ****
 make all 
-Building file: ../DIO_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_program.d" -MT"DIO_program.o" -c -o "DIO_program.o" "../DIO_program.c"
-Finished building: ../DIO_program.c
- 
-Building file: ../PORT_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_program.d" -MT"PORT_program.o" -c -o "PORT_program.o" "../PORT_program.c"
-Finished building: ../PORT_program.c
- 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-../main.c:10: warning: return type of 'main' is not 'int'
+In file included from ../main.c:7:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
 Finished building: ../main.c
  
 Building target: 18-2-2020_DAC.elf
@@ -35,10 +26,10 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    1414 bytes (4.3% Full)
+Program:    4782 bytes (14.6% Full)
 (.text + .data + .bootloader)
 
-Data:          0 bytes (0.0% Full)
+Data:          8 bytes (0.4% Full)
 (.data + .bss + .noinit)
 
 
@@ -59,26 +50,26 @@ avrdude: erasing chip
 avrdude: warning: cannot set sck period. please check for usbasp firmware update.
 avrdude: reading input file "18-2-2020_DAC.hex"
 avrdude: input file 18-2-2020_DAC.hex auto detected as Intel Hex
-avrdude: writing flash (1414 bytes):
+avrdude: writing flash (4782 bytes):
 
-Writing | ################################################## | 100% 1.40s
+Writing | ################################################## | 100% 4.40s
 
-avrdude: 1414 bytes of flash written
+avrdude: 4782 bytes of flash written
 avrdude: verifying flash memory against 18-2-2020_DAC.hex:
 avrdude: load data flash data from input file 18-2-2020_DAC.hex:
 avrdude: input file 18-2-2020_DAC.hex auto detected as Intel Hex
-avrdude: input file 18-2-2020_DAC.hex contains 1414 bytes
+avrdude: input file 18-2-2020_DAC.hex contains 4782 bytes
 avrdude: reading on-chip flash data:
 
-Reading | ################################################## | 100% 0.72s
+Reading | ################################################## | 100% 2.45s
 
 avrdude: verifying ...
-avrdude: 1414 bytes of flash verified
+avrdude: 4782 bytes of flash verified
 
 avrdude done.  Thank you.
 
 Finished building: avrdudedummy
  
 
-22:38:27 Build Finished (took 3s.408ms)
+09:34:55 Build Finished (took 8s.88ms)
 
