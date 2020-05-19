@@ -1,4 +1,4 @@
-18:14:33 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_snake ****
+22:36:20 **** Incremental Build of configuration Debug for project 16-1-2020_1_LCD_move_words_snake ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 16-1-2020_1_LCD_move_words_snake.elf
@@ -32,7 +32,7 @@ avrdude: reading input file "16-1-2020_1_LCD_move_words_snake.hex"
 avrdude: input file 16-1-2020_1_LCD_move_words_snake.hex auto detected as Intel Hex
 avrdude: writing flash (7488 bytes):
 
-Writing | ################################################## | 100% 6.87s
+Writing | ################################################## | 100% 6.90s
 
 avrdude: 7488 bytes of flash written
 avrdude: verifying flash memory against 16-1-2020_1_LCD_move_words_snake.hex:
@@ -41,7 +41,7 @@ avrdude: input file 16-1-2020_1_LCD_move_words_snake.hex auto detected as Intel 
 avrdude: input file 16-1-2020_1_LCD_move_words_snake.hex contains 7488 bytes
 avrdude: reading on-chip flash data:
 
-Reading | ################################################## | 100% 3.78s
+Reading | ################################################## | 100% 3.84s
 
 avrdude: verifying ...
 avrdude: 7488 bytes of flash verified
@@ -81,5 +81,5 @@ avrdude done.  Thank you.
 Finished building: avrdudedummy
  
 
-18:14:44 Build Finished (took 11s.316ms)
+22:36:32 Build Finished (took 11s.287ms)
 

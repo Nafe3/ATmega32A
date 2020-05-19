@@ -1,0 +1,47 @@
+04:57:59 **** Incremental Build of configuration Debug for project 19-3-2020_CLCD_Charachter_Generation ****
+make all 
+Building file: ../LCD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LCD_program.d" -MT"LCD_program.o" -c -o "LCD_program.o" "../LCD_program.c"
+In file included from ../LCD_program.c:14:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../LCD_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:5:
+d:/iti/subjects/intro to es-assaf/tools/sdk/imt_sdk_win_64_avr/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: 19-3-2020_CLCD_Charachter_Generation.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,19-3-2020_CLCD_Charachter_Generation.map -mmcu=atmega32 -o "19-3-2020_CLCD_Charachter_Generation.elf"  ./DIO_program.o ./LCD_program.o ./main.o   
+Finished building target: 19-3-2020_CLCD_Charachter_Generation.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 19-3-2020_CLCD_Charachter_Generation.elf  >"19-3-2020_CLCD_Charachter_Generation.lss"
+Finished building: 19-3-2020_CLCD_Charachter_Generation.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 19-3-2020_CLCD_Charachter_Generation.elf  "19-3-2020_CLCD_Charachter_Generation.hex"
+Finished building: 19-3-2020_CLCD_Charachter_Generation.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 19-3-2020_CLCD_Charachter_Generation.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7722 bytes (23.6% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+04:58:00 Build Finished (took 1s.49ms)
+

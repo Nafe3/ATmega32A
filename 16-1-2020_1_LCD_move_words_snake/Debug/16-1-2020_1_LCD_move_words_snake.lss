@@ -2811,14 +2811,14 @@ void CLCD_voidWriteData(u8 copy_u8Data)
     139e:	8d 8f       	std	Y+29, r24	; 0x1d
   /* Set RS = 1 */
 	setPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN, 1);
-    13a0:	84 e4       	ldi	r24, 0x44	; 68
-    13a2:	60 e0       	ldi	r22, 0x00	; 0
+    13a0:	81 e4       	ldi	r24, 0x41	; 65
+    13a2:	62 e0       	ldi	r22, 0x02	; 2
     13a4:	41 e0       	ldi	r20, 0x01	; 1
     13a6:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
   
   /* Set RW = 0 */
 	setPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN, 0);
-    13aa:	84 e4       	ldi	r24, 0x44	; 68
+    13aa:	81 e4       	ldi	r24, 0x41	; 65
     13ac:	61 e0       	ldi	r22, 0x01	; 1
     13ae:	40 e0       	ldi	r20, 0x00	; 0
     13b0:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -2830,8 +2830,8 @@ void CLCD_voidWriteData(u8 copy_u8Data)
   
   /* Enable Pulse */
   setPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,1);
-    13ba:	84 e4       	ldi	r24, 0x44	; 68
-    13bc:	62 e0       	ldi	r22, 0x02	; 2
+    13ba:	81 e4       	ldi	r24, 0x41	; 65
+    13bc:	60 e0       	ldi	r22, 0x00	; 0
     13be:	41 e0       	ldi	r20, 0x01	; 1
     13c0:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
     13c4:	80 e0       	ldi	r24, 0x00	; 0
@@ -2973,8 +2973,8 @@ _delay_ms(double __ms)
     14a6:	8f 87       	std	Y+15, r24	; 0x0f
   _delay_ms(1);
   setPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,0);
-    14a8:	84 e4       	ldi	r24, 0x44	; 68
-    14aa:	62 e0       	ldi	r22, 0x02	; 2
+    14a8:	81 e4       	ldi	r24, 0x41	; 65
+    14aa:	60 e0       	ldi	r22, 0x00	; 0
     14ac:	40 e0       	ldi	r20, 0x00	; 0
     14ae:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
     14b2:	80 e0       	ldi	r24, 0x00	; 0
@@ -3145,14 +3145,14 @@ void CLCD_voidWriteCmd(u8 copy_u8Cmd)
     15bc:	8d 8f       	std	Y+29, r24	; 0x1d
   /* Set RS = 0 */
 	setPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN, 0);
-    15be:	84 e4       	ldi	r24, 0x44	; 68
-    15c0:	60 e0       	ldi	r22, 0x00	; 0
+    15be:	81 e4       	ldi	r24, 0x41	; 65
+    15c0:	62 e0       	ldi	r22, 0x02	; 2
     15c2:	40 e0       	ldi	r20, 0x00	; 0
     15c4:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
 
   /* Set RW = 0 */
 	setPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN, 0);
-    15c8:	84 e4       	ldi	r24, 0x44	; 68
+    15c8:	81 e4       	ldi	r24, 0x41	; 65
     15ca:	61 e0       	ldi	r22, 0x01	; 1
     15cc:	40 e0       	ldi	r20, 0x00	; 0
     15ce:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3164,8 +3164,8 @@ void CLCD_voidWriteCmd(u8 copy_u8Cmd)
 
   /* Enable Pulse */
   setPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,1);
-    15d8:	84 e4       	ldi	r24, 0x44	; 68
-    15da:	62 e0       	ldi	r22, 0x02	; 2
+    15d8:	81 e4       	ldi	r24, 0x41	; 65
+    15da:	60 e0       	ldi	r22, 0x00	; 0
     15dc:	41 e0       	ldi	r20, 0x01	; 1
     15de:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
     15e2:	80 e0       	ldi	r24, 0x00	; 0
@@ -3307,8 +3307,8 @@ _delay_ms(double __ms)
     16c4:	8f 87       	std	Y+15, r24	; 0x0f
   _delay_ms(1);
   setPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,0);
-    16c6:	84 e4       	ldi	r24, 0x44	; 68
-    16c8:	62 e0       	ldi	r22, 0x02	; 2
+    16c6:	81 e4       	ldi	r24, 0x41	; 65
+    16c8:	60 e0       	ldi	r22, 0x00	; 0
     16ca:	40 e0       	ldi	r20, 0x00	; 0
     16cc:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
     16d0:	80 e0       	ldi	r24, 0x00	; 0
@@ -3478,7 +3478,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     17d4:	81 70       	andi	r24, 0x01	; 1
     17d6:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D0_PIN, Local_u8Bit);
-    17d8:	81 e4       	ldi	r24, 0x41	; 65
+    17d8:	82 e4       	ldi	r24, 0x42	; 66
     17da:	60 e0       	ldi	r22, 0x00	; 0
     17dc:	49 81       	ldd	r20, Y+1	; 0x01
     17de:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3489,7 +3489,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     17e6:	81 70       	andi	r24, 0x01	; 1
     17e8:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D1_PIN, Local_u8Bit);
-    17ea:	81 e4       	ldi	r24, 0x41	; 65
+    17ea:	82 e4       	ldi	r24, 0x42	; 66
     17ec:	61 e0       	ldi	r22, 0x01	; 1
     17ee:	49 81       	ldd	r20, Y+1	; 0x01
     17f0:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3501,7 +3501,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     17fa:	81 70       	andi	r24, 0x01	; 1
     17fc:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D2_PIN, Local_u8Bit);
-    17fe:	81 e4       	ldi	r24, 0x41	; 65
+    17fe:	82 e4       	ldi	r24, 0x42	; 66
     1800:	62 e0       	ldi	r22, 0x02	; 2
     1802:	49 81       	ldd	r20, Y+1	; 0x01
     1804:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3514,7 +3514,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     1810:	81 70       	andi	r24, 0x01	; 1
     1812:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D3_PIN, Local_u8Bit);
-    1814:	81 e4       	ldi	r24, 0x41	; 65
+    1814:	82 e4       	ldi	r24, 0x42	; 66
     1816:	63 e0       	ldi	r22, 0x03	; 3
     1818:	49 81       	ldd	r20, Y+1	; 0x01
     181a:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3526,7 +3526,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     1824:	81 70       	andi	r24, 0x01	; 1
     1826:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D4_PIN, Local_u8Bit);
-    1828:	81 e4       	ldi	r24, 0x41	; 65
+    1828:	82 e4       	ldi	r24, 0x42	; 66
     182a:	64 e0       	ldi	r22, 0x04	; 4
     182c:	49 81       	ldd	r20, Y+1	; 0x01
     182e:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3539,7 +3539,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     183a:	81 70       	andi	r24, 0x01	; 1
     183c:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D5_PIN, Local_u8Bit);
-    183e:	81 e4       	ldi	r24, 0x41	; 65
+    183e:	82 e4       	ldi	r24, 0x42	; 66
     1840:	65 e0       	ldi	r22, 0x05	; 5
     1842:	49 81       	ldd	r20, Y+1	; 0x01
     1844:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3553,7 +3553,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     1852:	81 70       	andi	r24, 0x01	; 1
     1854:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D6_PIN, Local_u8Bit);
-    1856:	81 e4       	ldi	r24, 0x41	; 65
+    1856:	82 e4       	ldi	r24, 0x42	; 66
     1858:	66 e0       	ldi	r22, 0x06	; 6
     185a:	49 81       	ldd	r20, Y+1	; 0x01
     185c:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>
@@ -3565,7 +3565,7 @@ void CLCD_voidSetDataPort(u8 Copy_u8Data)
     1866:	88 1f       	adc	r24, r24
     1868:	89 83       	std	Y+1, r24	; 0x01
   setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D7_PIN, Local_u8Bit);
-    186a:	81 e4       	ldi	r24, 0x41	; 65
+    186a:	82 e4       	ldi	r24, 0x42	; 66
     186c:	67 e0       	ldi	r22, 0x07	; 7
     186e:	49 81       	ldd	r20, Y+1	; 0x01
     1870:	0e 94 7f 06 	call	0xcfe	; 0xcfe <setPinValue>

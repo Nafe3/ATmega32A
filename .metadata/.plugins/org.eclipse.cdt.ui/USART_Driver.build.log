@@ -1,4 +1,4 @@
-18:35:22 **** Incremental Build of configuration Debug for project USART_Driver ****
+21:06:07 **** Incremental Build of configuration Debug for project USART_Driver ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 USART_Driver.elf
@@ -17,8 +17,39 @@ Finished building: sizedummy
  
 Invoking: AVRDude
 D:\ITI\Subjects\Intro to ES-Assaf\Tools\SDK\IMT_SDK_Win_64_AVR\WinAVR\bin\avrdude -pm32 -cusbasp -Uflash:w:USART_Driver.hex:a
-avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
-make: *** [avrdudedummy] Error 1
 
-18:35:22 Build Finished (took 344ms)
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9502
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "USART_Driver.hex"
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: writing flash (6834 bytes):
+
+Writing | ################################################## | 100% 6.25s
+
+avrdude: 6834 bytes of flash written
+avrdude: verifying flash memory against USART_Driver.hex:
+avrdude: load data flash data from input file USART_Driver.hex:
+avrdude: input file USART_Driver.hex auto detected as Intel Hex
+avrdude: input file USART_Driver.hex contains 6834 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.50s
+
+avrdude: verifying ...
+avrdude: 6834 bytes of flash verified
+
+avrdude done.  Thank you.
+
+Finished building: avrdudedummy
+ 
+
+21:06:18 Build Finished (took 10s.286ms)
 

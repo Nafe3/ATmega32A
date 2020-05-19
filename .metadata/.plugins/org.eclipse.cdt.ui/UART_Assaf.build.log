@@ -1,0 +1,24 @@
+20:17:49 **** Incremental Build of configuration Debug for project UART_Assaf ****
+make all 
+Building file: ../UART_program.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -std=gnu11 -MMD -MP -MF"UART_program.d" -MT"UART_program.o" -c -o "UART_program.o" "../UART_program.c"
+Finished building: ../UART_program.c
+ 
+Building file: ../main.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -std=gnu11 -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: UART_Assaf.elf
+Invoking: Cross ARM GNU C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -Xlinker --gc-sections -Wl,-Map,"UART_Assaf.map" -o "UART_Assaf.elf"  ./DIO_program.o ./UART_program.o ./main.o   
+c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o): in function `exit':
+exit.c:(.text.exit+0x16): undefined reference to `_exit'
+c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/bin/ld.exe: c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o: in function `_start':
+(.text+0x4a): undefined reference to `main'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:43: UART_Assaf.elf] Error 1
+
+20:17:50 Build Finished (took 980ms)
+
