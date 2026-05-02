@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: README
+        run: test -f README.md && test -s README.md
+      - name: Representative lab folder
+        run: test -d 11-2-2020_DC_motor
